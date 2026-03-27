@@ -1,0 +1,73 @@
+
+#nullable enable
+
+namespace Milvus
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public sealed partial class IndexName
+    {
+        /// <summary>
+        /// The name of the database to which the collection belongs.<br/>
+        /// Setting this to a non-existing database results in a **MilvusException**.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("dbName")]
+        public string? DbName { get; set; }
+
+        /// <summary>
+        /// The name of the target collection.<br/>
+        /// Setting this to a non-existing collection results in a **MilvusException**.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("collectionName")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string CollectionName { get; set; }
+
+        /// <summary>
+        /// The name fo the target index.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("indexName")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string IndexName1 { get; set; }
+
+        /// <summary>
+        /// Additional properties that are not explicitly defined in the schema
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonExtensionData]
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="IndexName" /> class.
+        /// </summary>
+        /// <param name="dbName">
+        /// The name of the database to which the collection belongs.<br/>
+        /// Setting this to a non-existing database results in a **MilvusException**.
+        /// </param>
+        /// <param name="collectionName">
+        /// The name of the target collection.<br/>
+        /// Setting this to a non-existing collection results in a **MilvusException**.
+        /// </param>
+        /// <param name="indexName1">
+        /// The name fo the target index.
+        /// </param>
+#if NET7_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
+        public IndexName(
+            string collectionName,
+            string indexName1,
+            string? dbName)
+        {
+            this.CollectionName = collectionName ?? throw new global::System.ArgumentNullException(nameof(collectionName));
+            this.IndexName1 = indexName1 ?? throw new global::System.ArgumentNullException(nameof(indexName1));
+            this.DbName = dbName;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="IndexName" /> class.
+        /// </summary>
+        public IndexName()
+        {
+        }
+    }
+}

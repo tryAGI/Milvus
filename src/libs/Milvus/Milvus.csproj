@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Nuget">
+    <Description>C# SDK for the Milvus vector database REST API -- collections, vectors, partitions, indexes, users, and roles management.</Description>
+    <PackageTags>milvus;vector-database;csharp;dotnet;sdk;ai;autosdk;openapi;embeddings;similarity-search</PackageTags>
+  </PropertyGroup>
+
+</Project>

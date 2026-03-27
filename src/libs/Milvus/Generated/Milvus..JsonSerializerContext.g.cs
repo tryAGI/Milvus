@@ -1,0 +1,142 @@
+
+#nullable enable
+
+#pragma warning disable CS0618 // Type or member is obsolete
+#pragma warning disable CS3016 // Arrays as attribute arguments is not CLS-compliant
+
+namespace Milvus
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    [global::System.Text.Json.Serialization.JsonSourceGenerationOptions(
+        DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull,
+        Converters = new global::System.Type[]
+        {
+            typeof(global::Milvus.JsonConverters.AnyOfJsonConverter<int?, string>),
+
+            typeof(global::Milvus.JsonConverters.AnyOfJsonConverter<global::Milvus.CreateVectordbEntitiesInsertRequestData, global::System.Collections.Generic.IList<object>>),
+
+            typeof(global::Milvus.JsonConverters.AnyOfJsonConverter<global::Milvus.CreateVectordbEntitiesUpsertRequestData, global::System.Collections.Generic.IList<object>>),
+
+            typeof(global::Milvus.JsonConverters.AnyOfJsonConverter<int?, string, global::System.Collections.Generic.IList<int>, global::System.Collections.Generic.IList<string>>),
+
+            typeof(global::Milvus.JsonConverters.UnixTimestampJsonConverter),
+        })]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.JsonSerializerContextTypes))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.AliasName))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(string))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.AliasCollection))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.AliasDetail))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.HttpapiGenericRespCustomerDropCollectionResp))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(int))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(object))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.LoadStateCollectionPartition))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.LoadStateCollectionPartitionData))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.HttpapiGenericRespCustomerCreateIndexResp))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CollectionParams))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CollectionSchema))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Milvus.FieldSchema>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.FieldSchema))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.FieldSchemaElementTypeParams))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.PartitionNames))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<string>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CollectionName))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.DbName))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.IndexDetail))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.IndexName))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.IndexParam))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.IndexConfig))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.Privileges))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Milvus.PrivilegeEntity>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.PrivilegeEntity))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.RoleName))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.NamesCollectionPartitionUserRoleIndexAlias))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.RoleUser))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.UserName))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.NewPassword))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.Password))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.HttpapiGenericRespCustomerDeleteResp))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.PartitionName))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Milvus.AnyOf<int?, string>>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.AnyOf<int?, string>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.SearchParams))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.HttpapiGenericRespCustomerUpsertResp))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.HttpapiGenericRespCustomerUpsertRespData))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.RowCountCollectionPartition))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.RowCountCollectionPartitionData))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.GetStatsReq))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CodeOk))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.HttpapiGenericRespCustomerInsertResp))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CustomerInsertResp))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.Message))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.Has))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.HasData))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.HasReq))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CreateVectordbEntitiesDeleteRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CreateVectordbEntitiesInsertRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.AnyOf<global::Milvus.CreateVectordbEntitiesInsertRequestData, global::System.Collections.Generic.IList<object>>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CreateVectordbEntitiesInsertRequestData))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<object>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CreateVectordbEntitiesQueryRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CreateVectordbCollectionsRenameRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CreateVectordbEntitiesUpsertRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.AnyOf<global::Milvus.CreateVectordbEntitiesUpsertRequestData, global::System.Collections.Generic.IList<object>>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CreateVectordbEntitiesUpsertRequestData))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CreateVectordbEntitiesGetRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.AnyOf<int?, string, global::System.Collections.Generic.IList<int>, global::System.Collections.Generic.IList<string>>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<int>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CreateVectordbEntitiesSearchRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<global::Milvus.AnyOf<int?, string>>>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CreateVectordbPartitionsListRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CreateVectordbUsersDescribeRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CreateVectordbRolesGrantPrivilegeRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CreateVectordbIndexesCreateRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Milvus.IndexParam>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CreateVectordbIndexesDescribeRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CreateVectordbCollectionsReleaseRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CreateVectordbCollectionsCreateRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CreateVectordbPartitionsHasRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CreateVectordbPartitionsGetStatsRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CreateVectordbRolesRevokePrivilegeRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CreateVectordbCollectionsGetLoadStateRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CreateVectordbIndexesListRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CreateVectordbCollectionsListRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CreateVectordbCollectionsDescribeRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CreateVectordbAliasesListRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CreateVectordbAliasesDescribeRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CreateVectordbEntitiesQueryResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CreateVectordbEntitiesGetResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CreateVectordbEntitiesSearchResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CreateVectordbPartitionsListResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CreateVectordbUsersDescribeResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CreateVectordbUsersListResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CreateVectordbIndexesDescribeResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Milvus.IndexDetail>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CreateVectordbIndexesListResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CreateVectordbCollectionsDescribeResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CreateVectordbCollectionsDescribeResponseData))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Milvus.CreateVectordbCollectionsDescribeResponseDataField>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CreateVectordbCollectionsDescribeResponseDataField))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Milvus.CreateVectordbCollectionsDescribeResponseDataIndexe>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CreateVectordbCollectionsDescribeResponseDataIndexe))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.CreateVectordbAliasesDescribeResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Milvus.FieldSchema>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Milvus.PrivilegeEntity>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Milvus.AnyOf<int?, string>>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.AnyOf<global::Milvus.CreateVectordbEntitiesInsertRequestData, global::System.Collections.Generic.List<object>>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.AnyOf<global::Milvus.CreateVectordbEntitiesUpsertRequestData, global::System.Collections.Generic.List<object>>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.AnyOf<int?, string, global::System.Collections.Generic.List<int>, global::System.Collections.Generic.List<string>>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<int>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::System.Collections.Generic.List<global::Milvus.AnyOf<int?, string>>>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Milvus.IndexParam>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Milvus.IndexDetail>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Milvus.CreateVectordbCollectionsDescribeResponseDataField>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Milvus.CreateVectordbCollectionsDescribeResponseDataIndexe>))]
+    public sealed partial class SourceGenerationContext : global::System.Text.Json.Serialization.JsonSerializerContext
+    {
+    }
+}
