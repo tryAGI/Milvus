@@ -1,5 +1,5 @@
 /*
-order: 10
+order: 0
 title: Generate
 slug: generate
 
@@ -13,6 +13,11 @@ public partial class Tests
     [TestMethod]
     public async Task Example_Generate()
     {
-        using var client = GetAuthenticatedClient();
+        var client = Client;
+
+        //// List collections to verify the client is connected.
+
+        await client.CollectionOperationsV2.CreateVectordbCollectionsListAsync(
+            dbName: "default");
     }
 }

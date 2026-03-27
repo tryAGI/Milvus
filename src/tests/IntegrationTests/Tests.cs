@@ -3,15 +3,19 @@ namespace Milvus.IntegrationTests;
 [TestClass]
 public partial class Tests
 {
-    private static MilvusClient GetAuthenticatedClient()
-    {
-        var apiKey =
-            Environment.GetEnvironmentVariable("MILVUS_API_KEY") is { Length: > 0 } apiKeyValue
-                ? apiKeyValue
-                : throw new AssertInconclusiveException("MILVUS_API_KEY environment variable is not found.");
+    private static Environment _environment = null!;
 
-        var client = new MilvusClient(apiKey);
-        
-        return client;
+    public static MilvusClient Client => _environment.Client;
+
+    [AssemblyInitialize]
+    public static async Task AssemblyInit(TestContext context)
+    {
+        _environment = await Environment.PrepareAsync();
+    }
+
+    [AssemblyCleanup]
+    public static async Task AssemblyCleanup()
+    {
+        await _environment.DisposeAsync();
     }
 }
