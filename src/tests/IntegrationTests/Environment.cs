@@ -40,6 +40,7 @@ public sealed class Environment : IAsyncDisposable
             {
                 var container = new ContainerBuilder(MilvusImage)
                     .WithPortBinding(MilvusPort, assignRandomHostPort: true)
+                    .WithEnvironment("DEPLOY_MODE", "STANDALONE")
                     .WithEnvironment("ETCD_USE_EMBED", "true")
                     .WithEnvironment("ETCD_DATA_DIR", "/var/lib/milvus/etcd")
                     .WithEnvironment("ETCD_CONFIG_PATH", "/milvus/configs/embedEtcd.yaml")
