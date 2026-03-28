@@ -25,7 +25,7 @@ Default base URL: `http://localhost:19530` (local Milvus instance).
 ## Key Files
 
 - `src/libs/Milvus/openapi.json` — OpenAPI spec (downloaded from milvus-io/web-content)
-- `src/libs/Milvus/generate.sh` — Downloads spec, injects securitySchemes + servers + security + title via `jq`, runs autosdk
+- `src/libs/Milvus/generate.sh` — Downloads spec, injects servers + title via `jq`, runs autosdk with `--security-scheme Http:Header:Bearer`
 - `src/libs/Milvus/Generated/` — **Never edit** — auto-generated code
 - `src/libs/Milvus/Extensions/MilvusClient.Tools.cs` — MEAI `AIFunction` tools for vector operations
 - `src/tests/IntegrationTests/Tests.cs` — Test helper with bearer auth
@@ -33,8 +33,8 @@ Default base URL: `http://localhost:19530` (local Milvus instance).
 
 ## Spec Notes
 
-- Original spec has **no** `securitySchemes`, `servers`, or top-level `security` — all injected by `generate.sh`
-- `jq` adds `BearerAuth` (http/bearer) security scheme, `localhost:19530` server, and `info.title`
+- Original spec has **no** `securitySchemes`, `servers`, or top-level `security`
+- `jq` adds `localhost:19530` server and `info.title`; `--security-scheme Http:Header:Bearer` handles auth
 - Uses `--exclude-deprecated-operations` flag
 - All REST endpoints use POST method (Milvus v2 RESTful API convention)
 
