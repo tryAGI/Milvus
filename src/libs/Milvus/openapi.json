@@ -5445,7 +5445,7 @@
       }
     },
     "securitySchemes": {
-      "BearerAuth": {
+      "bearer": {
         "type": "http",
         "scheme": "bearer"
       }
@@ -5454,11 +5454,6 @@
   "servers": [
     {
       "url": "http://localhost:19530"
-    }
-  ],
-  "security": [
-    {
-      "BearerAuth": []
     }
   ]
 }
