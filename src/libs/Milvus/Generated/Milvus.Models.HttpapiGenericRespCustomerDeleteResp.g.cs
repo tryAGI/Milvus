@@ -18,7 +18,7 @@ namespace Milvus
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data")]
-        public object? Data { get; set; }
+        public global::Milvus.CustomerDeleteResp? Data { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -36,7 +36,7 @@ namespace Milvus
 #endif
         public HttpapiGenericRespCustomerDeleteResp(
             int? code,
-            object? data)
+            global::Milvus.CustomerDeleteResp? data)
         {
             this.Code = code;
             this.Data = data;

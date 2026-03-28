@@ -18,7 +18,7 @@ namespace Milvus
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data")]
-        public object? Data { get; set; }
+        public global::Milvus.CustomerCreateIndexResp? Data { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -36,7 +36,7 @@ namespace Milvus
 #endif
         public HttpapiGenericRespCustomerCreateIndexResp(
             int? code,
-            object? data)
+            global::Milvus.CustomerCreateIndexResp? data)
         {
             this.Code = code;
             this.Data = data;
