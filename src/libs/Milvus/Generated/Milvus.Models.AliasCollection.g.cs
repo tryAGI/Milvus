@@ -37,14 +37,14 @@ namespace Milvus
         /// <summary>
         /// Initializes a new instance of the <see cref="AliasCollection" /> class.
         /// </summary>
-        /// <param name="dbName">
-        /// The name of the database to which the collection belongs.
-        /// </param>
         /// <param name="collectionName">
         /// The name of the target collection to reassign an alias to.
         /// </param>
         /// <param name="aliasName">
         /// The alias of the collection. 
+        /// </param>
+        /// <param name="dbName">
+        /// The name of the database to which the collection belongs.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -54,9 +54,9 @@ namespace Milvus
             string aliasName,
             string? dbName)
         {
+            this.DbName = dbName;
             this.CollectionName = collectionName ?? throw new global::System.ArgumentNullException(nameof(collectionName));
             this.AliasName = aliasName ?? throw new global::System.ArgumentNullException(nameof(aliasName));
-            this.DbName = dbName;
         }
 
         /// <summary>

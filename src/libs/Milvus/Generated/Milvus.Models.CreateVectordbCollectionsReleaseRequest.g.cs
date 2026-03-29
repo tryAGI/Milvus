@@ -32,13 +32,13 @@ namespace Milvus
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateVectordbCollectionsReleaseRequest" /> class.
         /// </summary>
-        /// <param name="dbName">
-        /// The name of the database to which the cpllection belongs.<br/>
-        /// Setting this to a non-existing database results in a **MilvusException**.
-        /// </param>
         /// <param name="collectionName">
         /// The name of the target colletion.<br/>
         /// Setting this to a non-existing collection results in a **MilvusException**.
+        /// </param>
+        /// <param name="dbName">
+        /// The name of the database to which the cpllection belongs.<br/>
+        /// Setting this to a non-existing database results in a **MilvusException**.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -47,8 +47,8 @@ namespace Milvus
             string collectionName,
             string? dbName)
         {
-            this.CollectionName = collectionName ?? throw new global::System.ArgumentNullException(nameof(collectionName));
             this.DbName = dbName;
+            this.CollectionName = collectionName ?? throw new global::System.ArgumentNullException(nameof(collectionName));
         }
 
         /// <summary>

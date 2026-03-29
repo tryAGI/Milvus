@@ -37,14 +37,14 @@ namespace Milvus
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateVectordbPartitionsHasRequest" /> class.
         /// </summary>
-        /// <param name="dbName">
-        /// The name of an existing database. The value defaults to __default__.
-        /// </param>
         /// <param name="collectionName">
         /// The name of an existing collection.
         /// </param>
         /// <param name="partitionName">
         /// The name of the partition to test.
+        /// </param>
+        /// <param name="dbName">
+        /// The name of an existing database. The value defaults to __default__.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -54,9 +54,9 @@ namespace Milvus
             string partitionName,
             string? dbName)
         {
+            this.DbName = dbName;
             this.CollectionName = collectionName ?? throw new global::System.ArgumentNullException(nameof(collectionName));
             this.PartitionName = partitionName ?? throw new global::System.ArgumentNullException(nameof(partitionName));
-            this.DbName = dbName;
         }
 
         /// <summary>

@@ -32,13 +32,13 @@ namespace Milvus
         /// <summary>
         /// Initializes a new instance of the <see cref="CollectionName" /> class.
         /// </summary>
-        /// <param name="dbName">
-        /// The name of the database to which the collection belongs.<br/>
-        /// Setting this to a non-existing database results in a **MilvusException**.
-        /// </param>
         /// <param name="collectionName1">
         /// The name of the target collection.<br/>
         /// Setting this to a non-existing collection results in a **MilvusException**.
+        /// </param>
+        /// <param name="dbName">
+        /// The name of the database to which the collection belongs.<br/>
+        /// Setting this to a non-existing database results in a **MilvusException**.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -47,8 +47,8 @@ namespace Milvus
             string collectionName1,
             string? dbName)
         {
-            this.CollectionName1 = collectionName1 ?? throw new global::System.ArgumentNullException(nameof(collectionName1));
             this.DbName = dbName;
+            this.CollectionName1 = collectionName1 ?? throw new global::System.ArgumentNullException(nameof(collectionName1));
         }
 
         /// <summary>

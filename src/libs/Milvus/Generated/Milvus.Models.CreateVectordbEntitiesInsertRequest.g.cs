@@ -46,15 +46,15 @@ namespace Milvus
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateVectordbEntitiesInsertRequest" /> class.
         /// </summary>
-        /// <param name="dbName">
-        /// The name of the target database.
-        /// </param>
         /// <param name="collectionName">
         /// The name of an existing collection.
         /// </param>
         /// <param name="data">
         /// The data to insert into the current collection.<br/>
         /// The data to insert should be a dictionary that matches the schema of the current collection or a list of such dictionaries. 
+        /// </param>
+        /// <param name="dbName">
+        /// The name of the target database.
         /// </param>
         /// <param name="partitionName">
         /// The name of a partition in the current collection. <br/>
@@ -69,9 +69,9 @@ namespace Milvus
             string? dbName,
             string? partitionName)
         {
+            this.DbName = dbName;
             this.CollectionName = collectionName ?? throw new global::System.ArgumentNullException(nameof(collectionName));
             this.Data = data;
-            this.DbName = dbName;
             this.PartitionName = partitionName;
         }
 

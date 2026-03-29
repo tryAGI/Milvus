@@ -38,15 +38,15 @@ namespace Milvus
         /// <summary>
         /// Initializes a new instance of the <see cref="AliasName" /> class.
         /// </summary>
-        /// <param name="dbName">
-        /// The name of the database to which the collection belongs.
-        /// </param>
         /// <param name="collectionName">
         /// The name of the collection to which the alias is assigned to.
         /// </param>
         /// <param name="aliasName1">
         /// The alias to drop.<br/>
         /// When dropping an alias, you do not need to provide the collection name because one alias can only be assigned to exactly one collection. Therefore, the server knows which collection the specified alias belongs to.
+        /// </param>
+        /// <param name="dbName">
+        /// The name of the database to which the collection belongs.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -56,9 +56,9 @@ namespace Milvus
             string aliasName1,
             string? dbName)
         {
+            this.DbName = dbName;
             this.CollectionName = collectionName ?? throw new global::System.ArgumentNullException(nameof(collectionName));
             this.AliasName1 = aliasName1 ?? throw new global::System.ArgumentNullException(nameof(aliasName1));
-            this.DbName = dbName;
         }
 
         /// <summary>
