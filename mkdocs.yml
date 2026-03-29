@@ -3,6 +3,7 @@ nav:
 - Overview: index.md
 - Guides:
   - Authentication: guides/authentication.md
+  - Microsoft.Extensions.AI: guides/meai.md
 # EXAMPLES:START
 # EXAMPLES:END
         
