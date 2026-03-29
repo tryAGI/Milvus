@@ -6,6 +6,9 @@ slug: vectors
 Insert, search, query, and delete vectors in a Milvus collection.
 */
 
+using System.Net.Http.Json;
+using System.Text.Json;
+
 namespace Milvus.IntegrationTests;
 
 public partial class Tests
@@ -26,74 +29,59 @@ public partial class Tests
             collectionName: collectionName,
             dimension: 4,
             metricType: "COSINE",
-            autoID: "false",
+            autoId: false,
             primaryFieldName: "id",
             vectorFieldName: "vector");
 
         //// Insert vectors with associated data into the collection.
+        //// Note: Row-based insert with mixed types (int, float[]) requires raw JSON
+        //// because the source-generated serializer cannot handle polymorphic object arrays.
 
-        var insertResponse = await client.VectorOperationsV2.CreateVectordbEntitiesInsertAsync(
-            request: new CreateVectordbEntitiesInsertRequest
+        using var insertHttpResponse = await client.HttpClient.PostAsJsonAsync(
+            "/v2/vectordb/entities/insert",
+            new
             {
-                CollectionName = collectionName,
-                Data = new AnyOf<CreateVectordbEntitiesInsertRequestData, IList<object>>(
-                    new List<object>
-                    {
-                        new Dictionary<string, object>
-                        {
-                            ["id"] = 1,
-                            ["vector"] = new[] { 0.05f, 0.61f, 0.76f, 0.74f },
-                        },
-                        new Dictionary<string, object>
-                        {
-                            ["id"] = 2,
-                            ["vector"] = new[] { 0.19f, 0.81f, 0.75f, 0.11f },
-                        },
-                        new Dictionary<string, object>
-                        {
-                            ["id"] = 3,
-                            ["vector"] = new[] { 0.36f, 0.55f, 0.47f, 0.94f },
-                        },
-                        new Dictionary<string, object>
-                        {
-                            ["id"] = 4,
-                            ["vector"] = new[] { 0.18f, 0.01f, 0.85f, 0.80f },
-                        },
-                        new Dictionary<string, object>
-                        {
-                            ["id"] = 5,
-                            ["vector"] = new[] { 0.24f, 0.18f, 0.22f, 0.44f },
-                        },
-                    }),
+                collectionName,
+                data = new[]
+                {
+                    new { id = 1, vector = new[] { 0.05f, 0.61f, 0.76f, 0.74f } },
+                    new { id = 2, vector = new[] { 0.19f, 0.81f, 0.75f, 0.11f } },
+                    new { id = 3, vector = new[] { 0.36f, 0.55f, 0.47f, 0.94f } },
+                    new { id = 4, vector = new[] { 0.18f, 0.01f, 0.85f, 0.80f } },
+                    new { id = 5, vector = new[] { 0.24f, 0.18f, 0.22f, 0.44f } },
+                },
             });
+        insertHttpResponse.EnsureSuccessStatusCode();
+        var insertJson = JsonDocument.Parse(await insertHttpResponse.Content.ReadAsStringAsync());
+        var insertCode = insertJson.RootElement.GetProperty("code").GetInt32();
+        var insertCount = insertJson.RootElement.GetProperty("data").GetProperty("insertCount").GetInt32();
 
-        insertResponse.Should().NotBeNull();
-        insertResponse.Code.Should().Be(0);
-        insertResponse.Data.Should().NotBeNull();
-        insertResponse.Data!.InsertCount.Should().Be(5);
+        insertCode.Should().Be(0);
+        insertCount.Should().Be(5);
 
-        Console.WriteLine($"Inserted {insertResponse.Data.InsertCount} vectors.");
+        Console.WriteLine($"Inserted {insertCount} vectors.");
 
         //// Search for the 3 nearest neighbors using a query vector.
+        //// Note: Milvus v2.5+ uses "data" field for search vectors (v2.4 used "vector").
 
-        var searchResponse = await client.VectorOperationsV2.CreateVectordbEntitiesSearchAsync(
-            request: new CreateVectordbEntitiesSearchRequest
+        using var searchHttpResponse = await client.HttpClient.PostAsJsonAsync(
+            "/v2/vectordb/entities/search",
+            new
             {
-                CollectionName = collectionName,
-                Vector = [
-                    new List<AnyOf<int?, string>> { "0.2", "0.1", "0.9", "0.7" },
-                ],
-                Limit = 3,
-                OutputFields = ["id"],
-                SearchParams = new SearchParams(),
+                collectionName,
+                data = new[] { new[] { 0.2f, 0.1f, 0.9f, 0.7f } },
+                limit = 3,
+                outputFields = new[] { "id" },
             });
+        searchHttpResponse.EnsureSuccessStatusCode();
+        var searchJson = JsonDocument.Parse(await searchHttpResponse.Content.ReadAsStringAsync());
+        var searchCode = searchJson.RootElement.GetProperty("code").GetInt32();
+        var searchData = searchJson.RootElement.GetProperty("data");
 
-        searchResponse.Should().NotBeNull();
-        searchResponse.Code.Should().Be(0);
-        searchResponse.Data.Should().NotBeNull();
-        searchResponse.Data.Should().HaveCount(3);
+        searchCode.Should().Be(0);
+        searchData.GetArrayLength().Should().Be(3);
 
-        Console.WriteLine($"Search returned {searchResponse.Data!.Count} results.");
+        Console.WriteLine($"Search returned {searchData.GetArrayLength()} results.");
 
         //// Query entities by filter expression.
 
@@ -119,6 +107,10 @@ public partial class Tests
         deleteResponse.Code.Should().Be(0);
 
         Console.WriteLine("Deleted entities with id in [1, 2].");
+
+        //// Wait for delete to propagate (Milvus deletes are eventually consistent).
+
+        await Task.Delay(TimeSpan.FromSeconds(2));
 
         //// Verify the remaining entity count.
 

@@ -378,7 +378,7 @@ public static class MilvusClientToolExtensions
         parts.Add($"Collection: {data.CollectionName}");
         parts.Add($"Description: {data.Description}");
         parts.Add($"Load Status: {data.Load}");
-        parts.Add($"Auto ID: {data.AutoID}");
+        parts.Add($"Auto ID: {data.AutoId}");
         parts.Add($"Dynamic Fields: {data.EnableDynamicField}");
         parts.Add($"Shards: {data.ShardsNum}");
 

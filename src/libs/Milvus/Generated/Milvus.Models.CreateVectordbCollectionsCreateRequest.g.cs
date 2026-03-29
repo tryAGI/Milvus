@@ -41,15 +41,6 @@ namespace Milvus
         public string? IdType { get; set; }
 
         /// <summary>
-        /// Whether the primary field automatically increments. This parameter is designed for the quick-setup of a collection and will be ignored if __schema__ is defined.<br/>
-        /// Default Value: false
-        /// </summary>
-        /// <default>"false"</default>
-        [global::System.Text.Json.Serialization.JsonPropertyName("autoID")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string AutoID { get; set; } = "false";
-
-        /// <summary>
         /// The name of the primary field. This parameter is designed for the quick-setup of a collection and will be ignored if __schema__ is defined.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("primaryFieldName")]
@@ -80,6 +71,13 @@ namespace Milvus
         public global::Milvus.CollectionParams? Params { get; set; }
 
         /// <summary>
+        /// Whether the primary field automatically increments. This parameter is designed for the quick-setup of a collection and will be ignored if __schema__ is defined.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("autoId")]
+        public bool? AutoId { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -88,10 +86,6 @@ namespace Milvus
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateVectordbCollectionsCreateRequest" /> class.
         /// </summary>
-        /// <param name="autoID">
-        /// Whether the primary field automatically increments. This parameter is designed for the quick-setup of a collection and will be ignored if __schema__ is defined.<br/>
-        /// Default Value: false
-        /// </param>
         /// <param name="dbName">
         /// The name of the database. &lt;zilliz&gt;This parameter applies only to dedicated clusters.&lt;/zilliz&gt;
         /// </param>
@@ -120,11 +114,14 @@ namespace Milvus
         /// The parameters that apply to the index-building process.
         /// </param>
         /// <param name="params"></param>
+        /// <param name="autoId">
+        /// Whether the primary field automatically increments. This parameter is designed for the quick-setup of a collection and will be ignored if __schema__ is defined.<br/>
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public CreateVectordbCollectionsCreateRequest(
-            string autoID,
             string? dbName,
             string? collectionName,
             int? dimension,
@@ -134,19 +131,20 @@ namespace Milvus
             string? vectorFieldName,
             global::Milvus.CollectionSchema? schema,
             global::System.Collections.Generic.IList<global::Milvus.IndexParam>? indexParams,
-            global::Milvus.CollectionParams? @params)
+            global::Milvus.CollectionParams? @params,
+            bool? autoId)
         {
             this.DbName = dbName;
             this.CollectionName = collectionName;
             this.Dimension = dimension;
             this.MetricType = metricType;
             this.IdType = idType;
-            this.AutoID = autoID ?? throw new global::System.ArgumentNullException(nameof(autoID));
             this.PrimaryFieldName = primaryFieldName;
             this.VectorFieldName = vectorFieldName;
             this.Schema = schema;
             this.IndexParams = indexParams;
             this.Params = @params;
+            this.AutoId = autoId;
         }
 
         /// <summary>

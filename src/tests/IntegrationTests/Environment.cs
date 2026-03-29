@@ -5,8 +5,9 @@ namespace Milvus.IntegrationTests;
 
 public sealed class Environment : IAsyncDisposable
 {
-    private const string MilvusImage = "milvusdb/milvus:v2.5.26";
+    private const string MilvusImage = "milvusdb/milvus:v2.5.27";
     private const ushort MilvusPort = 19530;
+    private const ushort MilvusHealthPort = 9091;
     private static readonly TimeSpan StartupTimeout = TimeSpan.FromMinutes(3);
 
     public IContainer? Container { get; init; }
@@ -40,17 +41,16 @@ public sealed class Environment : IAsyncDisposable
             {
                 var container = new ContainerBuilder(MilvusImage)
                     .WithPortBinding(MilvusPort, assignRandomHostPort: true)
-                    .WithEnvironment("DEPLOY_MODE", "STANDALONE")
+                    .WithPortBinding(MilvusHealthPort, assignRandomHostPort: true)
                     .WithEnvironment("ETCD_USE_EMBED", "true")
                     .WithEnvironment("ETCD_DATA_DIR", "/var/lib/milvus/etcd")
-                    .WithEnvironment("ETCD_CONFIG_PATH", "/milvus/configs/embedEtcd.yaml")
                     .WithEnvironment("COMMON_STORAGETYPE", "local")
                     .WithCommand("milvus", "run", "standalone")
                     .WithWaitStrategy(
                         Wait.ForUnixContainer()
                             .UntilHttpRequestIsSucceeded(request => request
                                 .ForPath("/healthz")
-                                .ForPort(MilvusPort)))
+                                .ForPort(MilvusHealthPort)))
                     .Build();
 
                 using var cts = new CancellationTokenSource(StartupTimeout);

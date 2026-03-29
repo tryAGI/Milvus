@@ -28,7 +28,7 @@ public partial class Tests
             collectionName: collectionName,
             dimension: 4,
             metricType: "COSINE",
-            autoID: "false",
+            autoId: false,
             primaryFieldName: "id",
             vectorFieldName: vectorFieldName);
 
@@ -66,7 +66,14 @@ public partial class Tests
         Console.WriteLine($"Metric type: {indexDetail.MetricType}");
         Console.WriteLine($"Index state: {indexDetail.IndexState}");
 
-        //// Drop the index.
+        //// Release the collection before dropping the index (required by Milvus).
+
+        await client.CollectionOperationsV2.CreateVectordbCollectionsReleaseAsync(
+            collectionName: collectionName);
+
+        Console.WriteLine($"Collection '{collectionName}' released.");
+
+        //// Drop the auto-created index.
 
         await client.IndexOperationsV2.CreateVectordbIndexesDropAsync(
             collectionName: collectionName,

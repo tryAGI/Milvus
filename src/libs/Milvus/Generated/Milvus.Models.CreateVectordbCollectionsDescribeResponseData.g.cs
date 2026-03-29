@@ -16,13 +16,6 @@ namespace Milvus
         public required string CollectionName { get; set; }
 
         /// <summary>
-        /// Whether the primary key of this collection automatically increments.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("autoID")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool AutoID { get; set; }
-
-        /// <summary>
         /// The description of the collection.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
@@ -65,6 +58,13 @@ namespace Milvus
         public required int ShardsNum { get; set; }
 
         /// <summary>
+        /// Whether the primary key of this collection automatically increments.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("autoId")]
+        public bool? AutoId { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -75,9 +75,6 @@ namespace Milvus
         /// </summary>
         /// <param name="collectionName">
         /// The name of the current collection.
-        /// </param>
-        /// <param name="autoID">
-        /// Whether the primary key of this collection automatically increments.
         /// </param>
         /// <param name="description">
         /// The description of the collection.
@@ -97,27 +94,31 @@ namespace Milvus
         /// <param name="shardsNum">
         /// The number of shards created along with the collection.
         /// </param>
+        /// <param name="autoId">
+        /// Whether the primary key of this collection automatically increments.<br/>
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public CreateVectordbCollectionsDescribeResponseData(
             string collectionName,
-            bool autoID,
             string description,
             bool enableDynamicField,
             global::System.Collections.Generic.IList<global::Milvus.CreateVectordbCollectionsDescribeResponseDataField> fields,
             global::System.Collections.Generic.IList<global::Milvus.CreateVectordbCollectionsDescribeResponseDataIndexe> indexes,
             string load,
-            int shardsNum)
+            int shardsNum,
+            bool? autoId)
         {
             this.CollectionName = collectionName ?? throw new global::System.ArgumentNullException(nameof(collectionName));
-            this.AutoID = autoID;
             this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
             this.EnableDynamicField = enableDynamicField;
             this.Fields = fields ?? throw new global::System.ArgumentNullException(nameof(fields));
             this.Indexes = indexes ?? throw new global::System.ArgumentNullException(nameof(indexes));
             this.Load = load ?? throw new global::System.ArgumentNullException(nameof(load));
             this.ShardsNum = shardsNum;
+            this.AutoId = autoId;
         }
 
         /// <summary>

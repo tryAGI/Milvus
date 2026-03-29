@@ -2802,11 +2802,6 @@
                     "type": "string",
                     "description": "The data type of the primary field. This parameter is designed for the quick-setup of a collection and will be ignored if __schema__ is defined."
                   },
-                  "autoID": {
-                    "type": "string",
-                    "default": "false",
-                    "description": "Whether the primary field automatically increments. This parameter is designed for the quick-setup of a collection and will be ignored if __schema__ is defined."
-                  },
                   "primaryFieldName": {
                     "type": "string",
                     "description": "The name of the primary field. This parameter is designed for the quick-setup of a collection and will be ignored if __schema__ is defined."
@@ -2829,6 +2824,11 @@
                   "params": {
                     "$ref": "#/components/schemas/collection-params",
                     "description": "Extra parameters for the collection."
+                  },
+                  "autoId": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Whether the primary field automatically increments. This parameter is designed for the quick-setup of a collection and will be ignored if __schema__ is defined."
                   }
                 },
                 "x-apifox-refs": {},
@@ -2845,9 +2845,7 @@
                   "indexParams",
                   "params"
                 ],
-                "required": [
-                  "autoID"
-                ],
+                "required": [],
                 "x-apifox-ignore-properties": []
               },
               "example": ""
@@ -3604,10 +3602,6 @@
                           "type": "string",
                           "description": "The name of the current collection."
                         },
-                        "autoID": {
-                          "type": "boolean",
-                          "description": "Whether the primary key of this collection automatically increments."
-                        },
                         "description": {
                           "type": "string",
                           "description": "The description of the collection."
@@ -3705,6 +3699,11 @@
                         "shardsNum": {
                           "type": "integer",
                           "description": "The number of shards created along with the collection."
+                        },
+                        "autoId": {
+                          "type": "boolean",
+                          "description": "Whether the primary key of this collection automatically increments.",
+                          "default": false
                         }
                       },
                       "x-apifox-orders": [
@@ -3724,7 +3723,6 @@
                         "fields",
                         "enableDynamicField",
                         "description",
-                        "autoID",
                         "shardsNum"
                       ],
                       "x-apifox-ignore-properties": []

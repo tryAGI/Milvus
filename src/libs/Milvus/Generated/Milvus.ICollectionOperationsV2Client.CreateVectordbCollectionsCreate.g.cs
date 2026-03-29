@@ -42,10 +42,6 @@ namespace Milvus
         /// <param name="idType">
         /// The data type of the primary field. This parameter is designed for the quick-setup of a collection and will be ignored if __schema__ is defined.
         /// </param>
-        /// <param name="autoID">
-        /// Whether the primary field automatically increments. This parameter is designed for the quick-setup of a collection and will be ignored if __schema__ is defined.<br/>
-        /// Default Value: false
-        /// </param>
         /// <param name="primaryFieldName">
         /// The name of the primary field. This parameter is designed for the quick-setup of a collection and will be ignored if __schema__ is defined.
         /// </param>
@@ -57,6 +53,10 @@ namespace Milvus
         /// The parameters that apply to the index-building process.
         /// </param>
         /// <param name="params"></param>
+        /// <param name="autoId">
+        /// Whether the primary field automatically increments. This parameter is designed for the quick-setup of a collection and will be ignored if __schema__ is defined.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Milvus.HttpapiGenericRespCustomerCreateIndexResp> CreateVectordbCollectionsCreateAsync(
@@ -67,12 +67,12 @@ namespace Milvus
             int? dimension = default,
             string? metricType = default,
             string? idType = default,
-            string autoID = "false",
             string? primaryFieldName = default,
             string? vectorFieldName = default,
             global::Milvus.CollectionSchema? schema = default,
             global::System.Collections.Generic.IList<global::Milvus.IndexParam>? indexParams = default,
             global::Milvus.CollectionParams? @params = default,
+            bool? autoId = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }
