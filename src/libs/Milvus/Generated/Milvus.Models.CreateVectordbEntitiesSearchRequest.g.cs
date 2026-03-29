@@ -89,15 +89,16 @@ namespace Milvus
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateVectordbEntitiesSearchRequest" /> class.
         /// </summary>
-        /// <param name="dbName">
-        /// The name of the database.
-        /// </param>
         /// <param name="collectionName">
         /// The name of the collection to which this operation applies.
         /// </param>
         /// <param name="vector">
         /// A list of vector embeddings.<br/>
         /// &lt;include target="milvus"&gt;Milvus&lt;/include&gt;&lt;include target="zilliz"&gt;Zilliz Cloud&lt;/include&gt; searches for the most similar vector embeddings to the specified ones.
+        /// </param>
+        /// <param name="searchParams"></param>
+        /// <param name="dbName">
+        /// The name of the database.
         /// </param>
         /// <param name="annsField"></param>
         /// <param name="filter">
@@ -117,7 +118,6 @@ namespace Milvus
         /// <param name="outputFields">
         /// An array of fields to return along with the search results.
         /// </param>
-        /// <param name="searchParams"></param>
         /// <param name="partitionNames">
         /// The name of the partitions to which this operation applies.
         /// </param>
@@ -137,16 +137,16 @@ namespace Milvus
             global::System.Collections.Generic.IList<string>? outputFields,
             global::System.Collections.Generic.IList<string>? partitionNames)
         {
+            this.DbName = dbName;
             this.CollectionName = collectionName ?? throw new global::System.ArgumentNullException(nameof(collectionName));
             this.Vector = vector ?? throw new global::System.ArgumentNullException(nameof(vector));
-            this.SearchParams = searchParams ?? throw new global::System.ArgumentNullException(nameof(searchParams));
-            this.DbName = dbName;
             this.AnnsField = annsField;
             this.Filter = filter;
             this.Limit = limit;
             this.Offset = offset;
             this.GroupingField = groupingField;
             this.OutputFields = outputFields;
+            this.SearchParams = searchParams ?? throw new global::System.ArgumentNullException(nameof(searchParams));
             this.PartitionNames = partitionNames;
         }
 

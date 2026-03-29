@@ -36,11 +36,11 @@ namespace Milvus
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateVectordbCollectionsGetLoadStateRequest" /> class.
         /// </summary>
-        /// <param name="dbName">
-        /// The name of a database to which the collection belongs.
-        /// </param>
         /// <param name="collectionName">
         /// The name of a collection.
+        /// </param>
+        /// <param name="dbName">
+        /// The name of a database to which the collection belongs.
         /// </param>
         /// <param name="partitionNames">
         /// A list of partition names. If any partition names are specified, releasing any of these partitions results in the return of a NotLoad state.
@@ -53,8 +53,8 @@ namespace Milvus
             string? dbName,
             string? partitionNames)
         {
-            this.CollectionName = collectionName ?? throw new global::System.ArgumentNullException(nameof(collectionName));
             this.DbName = dbName;
+            this.CollectionName = collectionName ?? throw new global::System.ArgumentNullException(nameof(collectionName));
             this.PartitionNames = partitionNames;
         }
 

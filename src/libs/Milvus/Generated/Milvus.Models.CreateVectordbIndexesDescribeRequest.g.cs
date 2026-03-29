@@ -37,14 +37,14 @@ namespace Milvus
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateVectordbIndexesDescribeRequest" /> class.
         /// </summary>
-        /// <param name="dbName">
-        /// The name of the database to which the collection belongs.
-        /// </param>
         /// <param name="collectionName">
         /// The name of an the collection to which the index belongs.
         /// </param>
         /// <param name="indexName">
         /// The name of the index to describe.
+        /// </param>
+        /// <param name="dbName">
+        /// The name of the database to which the collection belongs.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -54,9 +54,9 @@ namespace Milvus
             string indexName,
             string? dbName)
         {
+            this.DbName = dbName;
             this.CollectionName = collectionName ?? throw new global::System.ArgumentNullException(nameof(collectionName));
             this.IndexName = indexName ?? throw new global::System.ArgumentNullException(nameof(indexName));
-            this.DbName = dbName;
         }
 
         /// <summary>

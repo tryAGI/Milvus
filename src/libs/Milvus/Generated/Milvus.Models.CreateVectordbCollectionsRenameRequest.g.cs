@@ -48,22 +48,22 @@ namespace Milvus
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateVectordbCollectionsRenameRequest" /> class.
         /// </summary>
-        /// <param name="dbName">
-        /// The name of the database to which the collection belongs.<br/>
-        /// Setting this to a non-existing database results in a **MilvusException**.
-        /// </param>
         /// <param name="collectionName">
         /// The name of the target collection.<br/>
         /// Setting this to a non-existing collection results in a **MilvusException**.
+        /// </param>
+        /// <param name="newCollectionName">
+        /// The name of the target collection after this operation.<br/>
+        /// Setting this to the value of **old_collection_name** results in a **MilvusException**.
+        /// </param>
+        /// <param name="dbName">
+        /// The name of the database to which the collection belongs.<br/>
+        /// Setting this to a non-existing database results in a **MilvusException**.
         /// </param>
         /// <param name="newDbName">
         /// The name of the database to which the collection belongs after this operation.<br/>
         /// The value defaults to **default**. Setting this to a database rather than the one the collection belongs to before this operation moves this collection to the specified database.<br/>
         /// Setting this to a non-existing database results in a **MilvusException**.
-        /// </param>
-        /// <param name="newCollectionName">
-        /// The name of the target collection after this operation.<br/>
-        /// Setting this to the value of **old_collection_name** results in a **MilvusException**.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -74,10 +74,10 @@ namespace Milvus
             string? dbName,
             string? newDbName)
         {
-            this.CollectionName = collectionName ?? throw new global::System.ArgumentNullException(nameof(collectionName));
-            this.NewCollectionName = newCollectionName ?? throw new global::System.ArgumentNullException(nameof(newCollectionName));
             this.DbName = dbName;
+            this.CollectionName = collectionName ?? throw new global::System.ArgumentNullException(nameof(collectionName));
             this.NewDbName = newDbName;
+            this.NewCollectionName = newCollectionName ?? throw new global::System.ArgumentNullException(nameof(newCollectionName));
         }
 
         /// <summary>

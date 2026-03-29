@@ -88,6 +88,10 @@ namespace Milvus
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateVectordbCollectionsCreateRequest" /> class.
         /// </summary>
+        /// <param name="autoID">
+        /// Whether the primary field automatically increments. This parameter is designed for the quick-setup of a collection and will be ignored if __schema__ is defined.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="dbName">
         /// The name of the database. &lt;zilliz&gt;This parameter applies only to dedicated clusters.&lt;/zilliz&gt;
         /// </param>
@@ -104,10 +108,6 @@ namespace Milvus
         /// </param>
         /// <param name="idType">
         /// The data type of the primary field. This parameter is designed for the quick-setup of a collection and will be ignored if __schema__ is defined.
-        /// </param>
-        /// <param name="autoID">
-        /// Whether the primary field automatically increments. This parameter is designed for the quick-setup of a collection and will be ignored if __schema__ is defined.<br/>
-        /// Default Value: false
         /// </param>
         /// <param name="primaryFieldName">
         /// The name of the primary field. This parameter is designed for the quick-setup of a collection and will be ignored if __schema__ is defined.
@@ -136,12 +136,12 @@ namespace Milvus
             global::System.Collections.Generic.IList<global::Milvus.IndexParam>? indexParams,
             global::Milvus.CollectionParams? @params)
         {
-            this.AutoID = autoID ?? throw new global::System.ArgumentNullException(nameof(autoID));
             this.DbName = dbName;
             this.CollectionName = collectionName;
             this.Dimension = dimension;
             this.MetricType = metricType;
             this.IdType = idType;
+            this.AutoID = autoID ?? throw new global::System.ArgumentNullException(nameof(autoID));
             this.PrimaryFieldName = primaryFieldName;
             this.VectorFieldName = vectorFieldName;
             this.Schema = schema;

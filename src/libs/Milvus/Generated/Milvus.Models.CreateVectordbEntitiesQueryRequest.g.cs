@@ -48,11 +48,11 @@ namespace Milvus
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateVectordbEntitiesQueryRequest" /> class.
         /// </summary>
-        /// <param name="dbName">
-        /// The name of the database.
-        /// </param>
         /// <param name="collectionName">
         /// The name of the collection to which this operation applies.
+        /// </param>
+        /// <param name="dbName">
+        /// The name of the database.
         /// </param>
         /// <param name="filter">
         /// The filter used to find matches for the search.
@@ -73,8 +73,8 @@ namespace Milvus
             global::System.Collections.Generic.IList<string>? outputFields,
             global::System.Collections.Generic.IList<string>? partitionNames)
         {
-            this.CollectionName = collectionName ?? throw new global::System.ArgumentNullException(nameof(collectionName));
             this.DbName = dbName;
+            this.CollectionName = collectionName ?? throw new global::System.ArgumentNullException(nameof(collectionName));
             this.Filter = filter;
             this.OutputFields = outputFields;
             this.PartitionNames = partitionNames;
