@@ -5,7 +5,7 @@ namespace Milvus.IntegrationTests;
 
 public sealed class Environment : IAsyncDisposable
 {
-    private const string MilvusImage = "milvusdb/milvus:v2.5.27";
+    private const string MilvusImage = "milvusdb/milvus:v2.5.26";
     private const ushort MilvusPort = 19530;
     private static readonly TimeSpan StartupTimeout = TimeSpan.FromMinutes(3);
 
