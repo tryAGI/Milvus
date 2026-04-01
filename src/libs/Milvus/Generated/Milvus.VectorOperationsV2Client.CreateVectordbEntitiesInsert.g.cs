@@ -233,7 +233,6 @@ namespace Milvus
             string? partitionName = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::Milvus.CreateVectordbEntitiesInsertRequest
             {
                 DbName = dbName,

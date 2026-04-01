@@ -212,7 +212,6 @@ namespace Milvus
             string? dbName = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::Milvus.CreateVectordbPartitionsGetStatsRequest
             {
                 DbName = dbName,
