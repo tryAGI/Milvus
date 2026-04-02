@@ -9,7 +9,6 @@ namespace Milvus
         /// This operation deletes entities by their IDs or with a boolean expression.
         /// </summary>
         /// <param name="requestTimeout"></param>
-        /// <param name="authorization"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Milvus.ApiException"></exception>
@@ -17,14 +16,12 @@ namespace Milvus
 
             global::Milvus.CreateVectordbEntitiesDeleteRequest request,
             int? requestTimeout = default,
-            string? authorization = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete<br/>
         /// This operation deletes entities by their IDs or with a boolean expression.
         /// </summary>
         /// <param name="requestTimeout"></param>
-        /// <param name="authorization"></param>
         /// <param name="dbName">
         /// The name of the target database.
         /// </param>
@@ -45,7 +42,6 @@ namespace Milvus
             string collectionName,
             string filter,
             int? requestTimeout = default,
-            string? authorization = default,
             string? dbName = default,
             string? partitionName = default,
             global::System.Threading.CancellationToken cancellationToken = default);

@@ -9,7 +9,6 @@ namespace Milvus
         /// This operation lists all indexes of a specific collection.
         /// </summary>
         /// <param name="requestTimeout"></param>
-        /// <param name="authorization"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Milvus.ApiException"></exception>
@@ -17,14 +16,12 @@ namespace Milvus
 
             global::Milvus.CreateVectordbIndexesListRequest request,
             int? requestTimeout = default,
-            string? authorization = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List Indexes<br/>
         /// This operation lists all indexes of a specific collection.
         /// </summary>
         /// <param name="requestTimeout"></param>
-        /// <param name="authorization"></param>
         /// <param name="dbName">
         /// The name of the database to which the collection belongs.
         /// </param>
@@ -36,7 +33,6 @@ namespace Milvus
         global::System.Threading.Tasks.Task<global::Milvus.CreateVectordbIndexesListResponse> CreateVectordbIndexesListAsync(
             string dbName,
             int? requestTimeout = default,
-            string? authorization = default,
             string? collectionName = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

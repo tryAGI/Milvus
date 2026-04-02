@@ -8,13 +8,11 @@ namespace Milvus
         partial void PrepareCreateVectordbUsersUpdatePasswordArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref int? requestTimeout,
-            ref string? authorization,
             global::Milvus.NewPassword request);
         partial void PrepareCreateVectordbUsersUpdatePasswordRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             int? requestTimeout,
-            string? authorization,
             global::Milvus.NewPassword request);
         partial void ProcessCreateVectordbUsersUpdatePasswordResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -25,7 +23,6 @@ namespace Milvus
         /// This operation updates the password for a specific user.
         /// </summary>
         /// <param name="requestTimeout"></param>
-        /// <param name="authorization"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Milvus.ApiException"></exception>
@@ -33,7 +30,6 @@ namespace Milvus
 
             global::Milvus.NewPassword request,
             int? requestTimeout = default,
-            string? authorization = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -43,7 +39,6 @@ namespace Milvus
             PrepareCreateVectordbUsersUpdatePasswordArguments(
                 httpClient: HttpClient,
                 requestTimeout: ref requestTimeout,
-                authorization: ref authorization,
                 request: request);
 
             var __pathBuilder = new global::Milvus.PathBuilder(
@@ -78,10 +73,6 @@ namespace Milvus
             {
                 __httpRequest.Headers.TryAddWithoutValidation("Request-Timeout", requestTimeout.ToString());
             }
-            if (authorization != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("Authorization", authorization.ToString());
-            }
 
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
@@ -97,7 +88,6 @@ namespace Milvus
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 requestTimeout: requestTimeout,
-                authorization: authorization,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -192,7 +182,6 @@ namespace Milvus
         /// This operation updates the password for a specific user.
         /// </summary>
         /// <param name="requestTimeout"></param>
-        /// <param name="authorization"></param>
         /// <param name="userName">
         /// The name of the target user. The value should start with a letter and can only contain underline, letters and numbers.
         /// </param>
@@ -210,7 +199,6 @@ namespace Milvus
             string password,
             string newPassword1,
             int? requestTimeout = default,
-            string? authorization = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::Milvus.NewPassword
@@ -222,7 +210,6 @@ namespace Milvus
 
             await CreateVectordbUsersUpdatePasswordAsync(
                 requestTimeout: requestTimeout,
-                authorization: authorization,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

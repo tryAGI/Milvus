@@ -8,13 +8,11 @@ namespace Milvus
         partial void PrepareCreateVectordbEntitiesSearchArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref int? requestTimeout,
-            ref string? authorization,
             global::Milvus.CreateVectordbEntitiesSearchRequest request);
         partial void PrepareCreateVectordbEntitiesSearchRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             int? requestTimeout,
-            string? authorization,
             global::Milvus.CreateVectordbEntitiesSearchRequest request);
         partial void ProcessCreateVectordbEntitiesSearchResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -30,7 +28,6 @@ namespace Milvus
         /// This operation conducts a vector similarity search with an optional scalar filtering expression.
         /// </summary>
         /// <param name="requestTimeout"></param>
-        /// <param name="authorization"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Milvus.ApiException"></exception>
@@ -38,7 +35,6 @@ namespace Milvus
 
             global::Milvus.CreateVectordbEntitiesSearchRequest request,
             int? requestTimeout = default,
-            string? authorization = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -48,7 +44,6 @@ namespace Milvus
             PrepareCreateVectordbEntitiesSearchArguments(
                 httpClient: HttpClient,
                 requestTimeout: ref requestTimeout,
-                authorization: ref authorization,
                 request: request);
 
             var __pathBuilder = new global::Milvus.PathBuilder(
@@ -83,10 +78,6 @@ namespace Milvus
             {
                 __httpRequest.Headers.TryAddWithoutValidation("Request-Timeout", requestTimeout.ToString());
             }
-            if (authorization != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("Authorization", authorization.ToString());
-            }
 
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
@@ -102,7 +93,6 @@ namespace Milvus
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 requestTimeout: requestTimeout,
-                authorization: authorization,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -207,7 +197,6 @@ namespace Milvus
         /// This operation conducts a vector similarity search with an optional scalar filtering expression.
         /// </summary>
         /// <param name="requestTimeout"></param>
-        /// <param name="authorization"></param>
         /// <param name="dbName">
         /// The name of the database.
         /// </param>
@@ -247,7 +236,6 @@ namespace Milvus
             global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<global::Milvus.AnyOf<int?, string>>> vector,
             global::Milvus.SearchParams searchParams,
             int? requestTimeout = default,
-            string? authorization = default,
             string? dbName = default,
             string? annsField = default,
             string? filter = default,
@@ -275,7 +263,6 @@ namespace Milvus
 
             return await CreateVectordbEntitiesSearchAsync(
                 requestTimeout: requestTimeout,
-                authorization: authorization,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

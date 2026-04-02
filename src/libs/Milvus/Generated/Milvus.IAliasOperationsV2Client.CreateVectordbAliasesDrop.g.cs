@@ -9,7 +9,6 @@ namespace Milvus
         /// This operation drops a specified alias. 
         /// </summary>
         /// <param name="requestTimeout"></param>
-        /// <param name="authorization"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Milvus.ApiException"></exception>
@@ -17,14 +16,12 @@ namespace Milvus
 
             global::Milvus.AliasName request,
             int? requestTimeout = default,
-            string? authorization = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Drop Alias<br/>
         /// This operation drops a specified alias. 
         /// </summary>
         /// <param name="requestTimeout"></param>
-        /// <param name="authorization"></param>
         /// <param name="dbName">
         /// The name of the database to which the collection belongs.
         /// </param>
@@ -41,7 +38,6 @@ namespace Milvus
             string collectionName,
             string aliasName1,
             int? requestTimeout = default,
-            string? authorization = default,
             string? dbName = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

@@ -9,7 +9,6 @@ namespace Milvus
         /// This operation inserts data into a specific collection. You can insert a maximum of 100 entities at a time. To insert large volumes of data, please use [the bulk-insert API](https://docs.zilliz.com/docs/data-import).
         /// </summary>
         /// <param name="requestTimeout"></param>
-        /// <param name="authorization"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Milvus.ApiException"></exception>
@@ -17,14 +16,12 @@ namespace Milvus
 
             global::Milvus.CreateVectordbEntitiesInsertRequest request,
             int? requestTimeout = default,
-            string? authorization = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Insert<br/>
         /// This operation inserts data into a specific collection. You can insert a maximum of 100 entities at a time. To insert large volumes of data, please use [the bulk-insert API](https://docs.zilliz.com/docs/data-import).
         /// </summary>
         /// <param name="requestTimeout"></param>
-        /// <param name="authorization"></param>
         /// <param name="dbName">
         /// The name of the target database.
         /// </param>
@@ -45,7 +42,6 @@ namespace Milvus
             string collectionName,
             global::Milvus.AnyOf<global::Milvus.CreateVectordbEntitiesInsertRequestData, global::System.Collections.Generic.IList<object>> data,
             int? requestTimeout = default,
-            string? authorization = default,
             string? dbName = default,
             string? partitionName = default,
             global::System.Threading.CancellationToken cancellationToken = default);

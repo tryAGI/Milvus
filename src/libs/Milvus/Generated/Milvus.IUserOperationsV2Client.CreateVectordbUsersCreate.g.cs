@@ -9,7 +9,6 @@ namespace Milvus
         /// This operation creates a new user with a corresponding password.
         /// </summary>
         /// <param name="requestTimeout"></param>
-        /// <param name="authorization"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Milvus.ApiException"></exception>
@@ -17,14 +16,12 @@ namespace Milvus
 
             global::Milvus.Password request,
             int? requestTimeout = default,
-            string? authorization = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create User<br/>
         /// This operation creates a new user with a corresponding password.
         /// </summary>
         /// <param name="requestTimeout"></param>
-        /// <param name="authorization"></param>
         /// <param name="userName">
         /// The name of the target user. The value should start with a letter and can only contain underline, letters and numbers.
         /// </param>
@@ -38,7 +35,6 @@ namespace Milvus
             string userName,
             string password1,
             int? requestTimeout = default,
-            string? authorization = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

@@ -9,7 +9,6 @@ namespace Milvus
         /// This creates a named index for a target field, which can either be a vector field or a scalar field.
         /// </summary>
         /// <param name="requestTimeout"></param>
-        /// <param name="authorization"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Milvus.ApiException"></exception>
@@ -17,14 +16,12 @@ namespace Milvus
 
             global::Milvus.CreateVectordbIndexesCreateRequest request,
             int? requestTimeout = default,
-            string? authorization = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create Index<br/>
         /// This creates a named index for a target field, which can either be a vector field or a scalar field.
         /// </summary>
         /// <param name="requestTimeout"></param>
-        /// <param name="authorization"></param>
         /// <param name="dbName">
         /// The name of the database to which the collection belongs.<br/>
         /// Setting this to a non-existing database results in a **MilvusException**.
@@ -42,7 +39,6 @@ namespace Milvus
             string collectionName,
             global::System.Collections.Generic.IList<global::Milvus.IndexParam> indexParams,
             int? requestTimeout = default,
-            string? authorization = default,
             string? dbName = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

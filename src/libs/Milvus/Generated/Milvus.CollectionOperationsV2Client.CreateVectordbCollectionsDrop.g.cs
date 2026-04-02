@@ -8,13 +8,11 @@ namespace Milvus
         partial void PrepareCreateVectordbCollectionsDropArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref int? requestTimeout,
-            ref string? authorization,
             global::Milvus.CollectionName request);
         partial void PrepareCreateVectordbCollectionsDropRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             int? requestTimeout,
-            string? authorization,
             global::Milvus.CollectionName request);
         partial void ProcessCreateVectordbCollectionsDropResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -30,7 +28,6 @@ namespace Milvus
         /// This operation drops the current collection and all data within the collection.
         /// </summary>
         /// <param name="requestTimeout"></param>
-        /// <param name="authorization"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Milvus.ApiException"></exception>
@@ -38,7 +35,6 @@ namespace Milvus
 
             global::Milvus.CollectionName request,
             int? requestTimeout = default,
-            string? authorization = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -48,7 +44,6 @@ namespace Milvus
             PrepareCreateVectordbCollectionsDropArguments(
                 httpClient: HttpClient,
                 requestTimeout: ref requestTimeout,
-                authorization: ref authorization,
                 request: request);
 
             var __pathBuilder = new global::Milvus.PathBuilder(
@@ -83,10 +78,6 @@ namespace Milvus
             {
                 __httpRequest.Headers.TryAddWithoutValidation("Request-Timeout", requestTimeout.ToString());
             }
-            if (authorization != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("Authorization", authorization.ToString());
-            }
 
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
@@ -102,7 +93,6 @@ namespace Milvus
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 requestTimeout: requestTimeout,
-                authorization: authorization,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -207,7 +197,6 @@ namespace Milvus
         /// This operation drops the current collection and all data within the collection.
         /// </summary>
         /// <param name="requestTimeout"></param>
-        /// <param name="authorization"></param>
         /// <param name="dbName">
         /// The name of the database to which the collection belongs.<br/>
         /// Setting this to a non-existing database results in a **MilvusException**.
@@ -221,7 +210,6 @@ namespace Milvus
         public async global::System.Threading.Tasks.Task<global::Milvus.HttpapiGenericRespCustomerDropCollectionResp> CreateVectordbCollectionsDropAsync(
             string collectionName1,
             int? requestTimeout = default,
-            string? authorization = default,
             string? dbName = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -233,7 +221,6 @@ namespace Milvus
 
             return await CreateVectordbCollectionsDropAsync(
                 requestTimeout: requestTimeout,
-                authorization: authorization,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

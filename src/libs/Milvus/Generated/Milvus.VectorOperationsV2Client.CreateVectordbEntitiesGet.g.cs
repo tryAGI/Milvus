@@ -8,13 +8,11 @@ namespace Milvus
         partial void PrepareCreateVectordbEntitiesGetArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref int? requestTimeout,
-            ref string? authorization,
             global::Milvus.CreateVectordbEntitiesGetRequest request);
         partial void PrepareCreateVectordbEntitiesGetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             int? requestTimeout,
-            string? authorization,
             global::Milvus.CreateVectordbEntitiesGetRequest request);
         partial void ProcessCreateVectordbEntitiesGetResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -30,7 +28,6 @@ namespace Milvus
         /// This operation gets specific entities by their IDs.
         /// </summary>
         /// <param name="requestTimeout"></param>
-        /// <param name="authorization"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Milvus.ApiException"></exception>
@@ -38,7 +35,6 @@ namespace Milvus
 
             global::Milvus.CreateVectordbEntitiesGetRequest request,
             int? requestTimeout = default,
-            string? authorization = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -48,7 +44,6 @@ namespace Milvus
             PrepareCreateVectordbEntitiesGetArguments(
                 httpClient: HttpClient,
                 requestTimeout: ref requestTimeout,
-                authorization: ref authorization,
                 request: request);
 
             var __pathBuilder = new global::Milvus.PathBuilder(
@@ -83,10 +78,6 @@ namespace Milvus
             {
                 __httpRequest.Headers.TryAddWithoutValidation("Request-Timeout", requestTimeout.ToString());
             }
-            if (authorization != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("Authorization", authorization.ToString());
-            }
 
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
@@ -102,7 +93,6 @@ namespace Milvus
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 requestTimeout: requestTimeout,
-                authorization: authorization,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -207,7 +197,6 @@ namespace Milvus
         /// This operation gets specific entities by their IDs.
         /// </summary>
         /// <param name="requestTimeout"></param>
-        /// <param name="authorization"></param>
         /// <param name="dbName">
         /// The name of the database.
         /// </param>
@@ -229,7 +218,6 @@ namespace Milvus
             string collectionName,
             global::Milvus.AnyOf<int?, string, global::System.Collections.Generic.IList<int>, global::System.Collections.Generic.IList<string>> id,
             int? requestTimeout = default,
-            string? authorization = default,
             string? dbName = default,
             global::System.Collections.Generic.IList<string>? outputFields = default,
             global::System.Collections.Generic.IList<string>? partitionNames = default,
@@ -246,7 +234,6 @@ namespace Milvus
 
             return await CreateVectordbEntitiesGetAsync(
                 requestTimeout: requestTimeout,
-                authorization: authorization,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

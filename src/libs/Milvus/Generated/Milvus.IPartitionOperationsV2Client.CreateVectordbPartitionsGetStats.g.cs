@@ -9,7 +9,6 @@ namespace Milvus
         /// This operations gets the number of entities in a partition.
         /// </summary>
         /// <param name="requestTimeout"></param>
-        /// <param name="authorization"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Milvus.ApiException"></exception>
@@ -17,14 +16,12 @@ namespace Milvus
 
             global::Milvus.CreateVectordbPartitionsGetStatsRequest request,
             int? requestTimeout = default,
-            string? authorization = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Partition Statistics<br/>
         /// This operations gets the number of entities in a partition.
         /// </summary>
         /// <param name="requestTimeout"></param>
-        /// <param name="authorization"></param>
         /// <param name="dbName">
         /// The name of an existing database. The value defaults to __default__.
         /// </param>
@@ -40,7 +37,6 @@ namespace Milvus
             string collectionName,
             string partitionName,
             int? requestTimeout = default,
-            string? authorization = default,
             string? dbName = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

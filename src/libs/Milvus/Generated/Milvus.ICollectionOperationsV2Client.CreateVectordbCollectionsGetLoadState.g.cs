@@ -9,7 +9,6 @@ namespace Milvus
         /// This operation returns the load status of a specific collection.
         /// </summary>
         /// <param name="requestTimeout"></param>
-        /// <param name="authorization"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Milvus.ApiException"></exception>
@@ -17,14 +16,12 @@ namespace Milvus
 
             global::Milvus.CreateVectordbCollectionsGetLoadStateRequest request,
             int? requestTimeout = default,
-            string? authorization = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Collection Load State<br/>
         /// This operation returns the load status of a specific collection.
         /// </summary>
         /// <param name="requestTimeout"></param>
-        /// <param name="authorization"></param>
         /// <param name="dbName">
         /// The name of a database to which the collection belongs.
         /// </param>
@@ -39,7 +36,6 @@ namespace Milvus
         global::System.Threading.Tasks.Task CreateVectordbCollectionsGetLoadStateAsync(
             string collectionName,
             int? requestTimeout = default,
-            string? authorization = default,
             string? dbName = default,
             string? partitionNames = default,
             global::System.Threading.CancellationToken cancellationToken = default);
