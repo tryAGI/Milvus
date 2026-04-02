@@ -8,13 +8,11 @@ namespace Milvus
         partial void PrepareCreateVectordbUsersDescribeArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref int? requestTimeout,
-            ref string? authorization,
             global::Milvus.CreateVectordbUsersDescribeRequest request);
         partial void PrepareCreateVectordbUsersDescribeRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             int? requestTimeout,
-            string? authorization,
             global::Milvus.CreateVectordbUsersDescribeRequest request);
         partial void ProcessCreateVectordbUsersDescribeResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -30,7 +28,6 @@ namespace Milvus
         /// This operation describes the detailed information of a specific user.
         /// </summary>
         /// <param name="requestTimeout"></param>
-        /// <param name="authorization"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Milvus.ApiException"></exception>
@@ -38,7 +35,6 @@ namespace Milvus
 
             global::Milvus.CreateVectordbUsersDescribeRequest request,
             int? requestTimeout = default,
-            string? authorization = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -48,7 +44,6 @@ namespace Milvus
             PrepareCreateVectordbUsersDescribeArguments(
                 httpClient: HttpClient,
                 requestTimeout: ref requestTimeout,
-                authorization: ref authorization,
                 request: request);
 
             var __pathBuilder = new global::Milvus.PathBuilder(
@@ -83,10 +78,6 @@ namespace Milvus
             {
                 __httpRequest.Headers.TryAddWithoutValidation("Request-Timeout", requestTimeout.ToString());
             }
-            if (authorization != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("Authorization", authorization.ToString());
-            }
 
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
@@ -102,7 +93,6 @@ namespace Milvus
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 requestTimeout: requestTimeout,
-                authorization: authorization,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -207,7 +197,6 @@ namespace Milvus
         /// This operation describes the detailed information of a specific user.
         /// </summary>
         /// <param name="requestTimeout"></param>
-        /// <param name="authorization"></param>
         /// <param name="userName">
         ///   The name of the user to describe.
         /// </param>
@@ -216,7 +205,6 @@ namespace Milvus
         public async global::System.Threading.Tasks.Task<global::Milvus.CreateVectordbUsersDescribeResponse> CreateVectordbUsersDescribeAsync(
             string userName,
             int? requestTimeout = default,
-            string? authorization = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::Milvus.CreateVectordbUsersDescribeRequest
@@ -226,7 +214,6 @@ namespace Milvus
 
             return await CreateVectordbUsersDescribeAsync(
                 requestTimeout: requestTimeout,
-                authorization: authorization,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

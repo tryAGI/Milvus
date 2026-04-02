@@ -9,7 +9,6 @@ namespace Milvus
         /// This operation conducts a filtering on the scalar field with a specified boolean expression.
         /// </summary>
         /// <param name="requestTimeout"></param>
-        /// <param name="authorization"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Milvus.ApiException"></exception>
@@ -17,14 +16,12 @@ namespace Milvus
 
             global::Milvus.CreateVectordbEntitiesQueryRequest request,
             int? requestTimeout = default,
-            string? authorization = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Query<br/>
         /// This operation conducts a filtering on the scalar field with a specified boolean expression.
         /// </summary>
         /// <param name="requestTimeout"></param>
-        /// <param name="authorization"></param>
         /// <param name="dbName">
         /// The name of the database.
         /// </param>
@@ -45,7 +42,6 @@ namespace Milvus
         global::System.Threading.Tasks.Task<global::Milvus.CreateVectordbEntitiesQueryResponse> CreateVectordbEntitiesQueryAsync(
             string collectionName,
             int? requestTimeout = default,
-            string? authorization = default,
             string? dbName = default,
             string? filter = default,
             global::System.Collections.Generic.IList<string>? outputFields = default,

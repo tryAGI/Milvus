@@ -9,7 +9,6 @@ namespace Milvus
         /// This operation gets specific entities by their IDs.
         /// </summary>
         /// <param name="requestTimeout"></param>
-        /// <param name="authorization"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Milvus.ApiException"></exception>
@@ -17,14 +16,12 @@ namespace Milvus
 
             global::Milvus.CreateVectordbEntitiesGetRequest request,
             int? requestTimeout = default,
-            string? authorization = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get<br/>
         /// This operation gets specific entities by their IDs.
         /// </summary>
         /// <param name="requestTimeout"></param>
-        /// <param name="authorization"></param>
         /// <param name="dbName">
         /// The name of the database.
         /// </param>
@@ -46,7 +43,6 @@ namespace Milvus
             string collectionName,
             global::Milvus.AnyOf<int?, string, global::System.Collections.Generic.IList<int>, global::System.Collections.Generic.IList<string>> id,
             int? requestTimeout = default,
-            string? authorization = default,
             string? dbName = default,
             global::System.Collections.Generic.IList<string>? outputFields = default,
             global::System.Collections.Generic.IList<string>? partitionNames = default,

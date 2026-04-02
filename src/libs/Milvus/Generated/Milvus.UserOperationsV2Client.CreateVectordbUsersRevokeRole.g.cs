@@ -7,13 +7,11 @@ namespace Milvus
     {
         partial void PrepareCreateVectordbUsersRevokeRoleArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref int? requestTimeout,
-            ref string? authorization);
+            ref int? requestTimeout);
         partial void PrepareCreateVectordbUsersRevokeRoleRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            int? requestTimeout,
-            string? authorization);
+            int? requestTimeout);
         partial void ProcessCreateVectordbUsersRevokeRoleResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -25,20 +23,17 @@ namespace Milvus
         /// &gt; To complete this operation, you need to enable authentication on your Milvus instance. For details, refer to [Authenticate User Access](https://milvus.io/docs/authenticate.md).
         /// </summary>
         /// <param name="requestTimeout"></param>
-        /// <param name="authorization"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Milvus.ApiException"></exception>
         public async global::System.Threading.Tasks.Task CreateVectordbUsersRevokeRoleAsync(
             int? requestTimeout = default,
-            string? authorization = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareCreateVectordbUsersRevokeRoleArguments(
                 httpClient: HttpClient,
-                requestTimeout: ref requestTimeout,
-                authorization: ref authorization);
+                requestTimeout: ref requestTimeout);
 
             var __pathBuilder = new global::Milvus.PathBuilder(
                 path: "/v2/vectordb/users/revoke_role",
@@ -72,10 +67,6 @@ namespace Milvus
             {
                 __httpRequest.Headers.TryAddWithoutValidation("Request-Timeout", requestTimeout.ToString());
             }
-            if (authorization != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("Authorization", authorization.ToString());
-            }
 
 
             PrepareRequest(
@@ -84,8 +75,7 @@ namespace Milvus
             PrepareCreateVectordbUsersRevokeRoleRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                requestTimeout: requestTimeout,
-                authorization: authorization);
+                requestTimeout: requestTimeout);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

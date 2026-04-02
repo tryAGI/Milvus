@@ -7,13 +7,11 @@ namespace Milvus
     {
         partial void PrepareCreateVectordbAliasesCreateArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref int? requestTimeout,
-            ref string? authorization);
+            ref int? requestTimeout);
         partial void PrepareCreateVectordbAliasesCreateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            int? requestTimeout,
-            string? authorization);
+            int? requestTimeout);
         partial void ProcessCreateVectordbAliasesCreateResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -23,20 +21,17 @@ namespace Milvus
         /// This operation creates an alias for an existing collection.
         /// </summary>
         /// <param name="requestTimeout"></param>
-        /// <param name="authorization"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Milvus.ApiException"></exception>
         public async global::System.Threading.Tasks.Task CreateVectordbAliasesCreateAsync(
             int? requestTimeout = default,
-            string? authorization = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareCreateVectordbAliasesCreateArguments(
                 httpClient: HttpClient,
-                requestTimeout: ref requestTimeout,
-                authorization: ref authorization);
+                requestTimeout: ref requestTimeout);
 
             var __pathBuilder = new global::Milvus.PathBuilder(
                 path: "/v2/vectordb/aliases/create",
@@ -70,10 +65,6 @@ namespace Milvus
             {
                 __httpRequest.Headers.TryAddWithoutValidation("Request-Timeout", requestTimeout.ToString());
             }
-            if (authorization != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("Authorization", authorization.ToString());
-            }
 
 
             PrepareRequest(
@@ -82,8 +73,7 @@ namespace Milvus
             PrepareCreateVectordbAliasesCreateRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                requestTimeout: requestTimeout,
-                authorization: authorization);
+                requestTimeout: requestTimeout);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

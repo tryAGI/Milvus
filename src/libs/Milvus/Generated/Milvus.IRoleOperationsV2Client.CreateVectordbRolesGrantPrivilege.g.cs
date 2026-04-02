@@ -9,7 +9,6 @@ namespace Milvus
         /// This operation grants a privilege to the current role.
         /// </summary>
         /// <param name="requestTimeout"></param>
-        /// <param name="authorization"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Milvus.ApiException"></exception>
@@ -17,14 +16,12 @@ namespace Milvus
 
             global::Milvus.CreateVectordbRolesGrantPrivilegeRequest request,
             int? requestTimeout = default,
-            string? authorization = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Grant Privilege To Role<br/>
         /// This operation grants a privilege to the current role.
         /// </summary>
         /// <param name="requestTimeout"></param>
-        /// <param name="authorization"></param>
         /// <param name="roleName">
         /// The name of the role.
         /// </param>
@@ -45,7 +42,6 @@ namespace Milvus
             string objectName,
             string privilege,
             int? requestTimeout = default,
-            string? authorization = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

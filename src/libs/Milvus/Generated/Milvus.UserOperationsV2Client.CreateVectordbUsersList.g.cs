@@ -7,13 +7,11 @@ namespace Milvus
     {
         partial void PrepareCreateVectordbUsersListArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref int? requestTimeout,
-            ref string? authorization);
+            ref int? requestTimeout);
         partial void PrepareCreateVectordbUsersListRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            int? requestTimeout,
-            string? authorization);
+            int? requestTimeout);
         partial void ProcessCreateVectordbUsersListResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -28,20 +26,17 @@ namespace Milvus
         /// This operation lists the information of all existing users.
         /// </summary>
         /// <param name="requestTimeout"></param>
-        /// <param name="authorization"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Milvus.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Milvus.CreateVectordbUsersListResponse> CreateVectordbUsersListAsync(
             int? requestTimeout = default,
-            string? authorization = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareCreateVectordbUsersListArguments(
                 httpClient: HttpClient,
-                requestTimeout: ref requestTimeout,
-                authorization: ref authorization);
+                requestTimeout: ref requestTimeout);
 
             var __pathBuilder = new global::Milvus.PathBuilder(
                 path: "/v2/vectordb/users/list",
@@ -75,10 +70,6 @@ namespace Milvus
             {
                 __httpRequest.Headers.TryAddWithoutValidation("Request-Timeout", requestTimeout.ToString());
             }
-            if (authorization != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("Authorization", authorization.ToString());
-            }
 
 
             PrepareRequest(
@@ -87,8 +78,7 @@ namespace Milvus
             PrepareCreateVectordbUsersListRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                requestTimeout: requestTimeout,
-                authorization: authorization);
+                requestTimeout: requestTimeout);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

@@ -9,7 +9,6 @@ namespace Milvus
         /// This operation conducts a vector similarity search with an optional scalar filtering expression.
         /// </summary>
         /// <param name="requestTimeout"></param>
-        /// <param name="authorization"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Milvus.ApiException"></exception>
@@ -17,14 +16,12 @@ namespace Milvus
 
             global::Milvus.CreateVectordbEntitiesSearchRequest request,
             int? requestTimeout = default,
-            string? authorization = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Search<br/>
         /// This operation conducts a vector similarity search with an optional scalar filtering expression.
         /// </summary>
         /// <param name="requestTimeout"></param>
-        /// <param name="authorization"></param>
         /// <param name="dbName">
         /// The name of the database.
         /// </param>
@@ -64,7 +61,6 @@ namespace Milvus
             global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<global::Milvus.AnyOf<int?, string>>> vector,
             global::Milvus.SearchParams searchParams,
             int? requestTimeout = default,
-            string? authorization = default,
             string? dbName = default,
             string? annsField = default,
             string? filter = default,

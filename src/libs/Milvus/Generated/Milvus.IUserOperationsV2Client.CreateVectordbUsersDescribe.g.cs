@@ -9,7 +9,6 @@ namespace Milvus
         /// This operation describes the detailed information of a specific user.
         /// </summary>
         /// <param name="requestTimeout"></param>
-        /// <param name="authorization"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Milvus.ApiException"></exception>
@@ -17,14 +16,12 @@ namespace Milvus
 
             global::Milvus.CreateVectordbUsersDescribeRequest request,
             int? requestTimeout = default,
-            string? authorization = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Describe User<br/>
         /// This operation describes the detailed information of a specific user.
         /// </summary>
         /// <param name="requestTimeout"></param>
-        /// <param name="authorization"></param>
         /// <param name="userName">
         ///   The name of the user to describe.
         /// </param>
@@ -33,7 +30,6 @@ namespace Milvus
         global::System.Threading.Tasks.Task<global::Milvus.CreateVectordbUsersDescribeResponse> CreateVectordbUsersDescribeAsync(
             string userName,
             int? requestTimeout = default,
-            string? authorization = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

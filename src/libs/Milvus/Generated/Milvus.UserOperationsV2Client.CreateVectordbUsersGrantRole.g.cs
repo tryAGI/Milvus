@@ -7,13 +7,11 @@ namespace Milvus
     {
         partial void PrepareCreateVectordbUsersGrantRoleArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref int? requestTimeout,
-            ref string? authorization);
+            ref int? requestTimeout);
         partial void PrepareCreateVectordbUsersGrantRoleRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            int? requestTimeout,
-            string? authorization);
+            int? requestTimeout);
         partial void ProcessCreateVectordbUsersGrantRoleResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -23,20 +21,17 @@ namespace Milvus
         /// This operation grants a specified role to the current user. Once granted the role, the user gets permissions allowed for the current role and can perform certain operations.
         /// </summary>
         /// <param name="requestTimeout"></param>
-        /// <param name="authorization"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Milvus.ApiException"></exception>
         public async global::System.Threading.Tasks.Task CreateVectordbUsersGrantRoleAsync(
             int? requestTimeout = default,
-            string? authorization = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareCreateVectordbUsersGrantRoleArguments(
                 httpClient: HttpClient,
-                requestTimeout: ref requestTimeout,
-                authorization: ref authorization);
+                requestTimeout: ref requestTimeout);
 
             var __pathBuilder = new global::Milvus.PathBuilder(
                 path: "/v2/vectordb/users/grant_role",
@@ -70,10 +65,6 @@ namespace Milvus
             {
                 __httpRequest.Headers.TryAddWithoutValidation("Request-Timeout", requestTimeout.ToString());
             }
-            if (authorization != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("Authorization", authorization.ToString());
-            }
 
 
             PrepareRequest(
@@ -82,8 +73,7 @@ namespace Milvus
             PrepareCreateVectordbUsersGrantRoleRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                requestTimeout: requestTimeout,
-                authorization: authorization);
+                requestTimeout: requestTimeout);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
