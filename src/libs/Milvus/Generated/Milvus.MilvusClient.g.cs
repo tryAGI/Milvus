@@ -12,7 +12,7 @@ namespace Milvus
         /// <summary>
         /// 
         /// </summary>
-        public const string DefaultBaseUrl = "http://localhost:19530";
+        public const string DefaultBaseUrl = "http://localhost:19530/";
 
         private bool _disposeHttpClient = true;
 
