@@ -5,6 +5,25 @@ namespace Milvus
 {
     public partial class PartitionOperationsV2Client
     {
+
+
+        private static readonly global::Milvus.EndPointSecurityRequirement s_CreateVectordbPartitionsReleaseSecurityRequirement0 =
+            new global::Milvus.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Milvus.EndPointAuthorizationRequirement[]
+                {                    new global::Milvus.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Milvus.EndPointSecurityRequirement[] s_CreateVectordbPartitionsReleaseSecurityRequirements =
+            new global::Milvus.EndPointSecurityRequirement[]
+            {                s_CreateVectordbPartitionsReleaseSecurityRequirement0,
+            };
         partial void PrepareCreateVectordbPartitionsReleaseArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref int? requestTimeout,
@@ -41,9 +60,15 @@ namespace Milvus
                 requestTimeout: ref requestTimeout,
                 request: request);
 
+
+            var __authorizations = global::Milvus.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_CreateVectordbPartitionsReleaseSecurityRequirements,
+                operationName: "CreateVectordbPartitionsReleaseAsync");
+
             var __pathBuilder = new global::Milvus.PathBuilder(
                 path: "/v2/vectordb/partitions/release",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -53,7 +78,7 @@ namespace Milvus
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")
