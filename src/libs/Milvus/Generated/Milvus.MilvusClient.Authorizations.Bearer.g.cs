@@ -25,6 +25,7 @@ namespace Milvus
             Authorizations.Add(new global::Milvus.EndPointAuthorization
             {
                 Type = "Http",
+                SchemeId = "HttpBearer",
                 Location = "Header",
                 Name = "Bearer",
                 Value = apiKey,

@@ -10,12 +10,14 @@ namespace Milvus
         /// </summary>
         /// <param name="requestTimeout"></param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Milvus.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Milvus.HttpapiGenericRespCustomerCreateIndexResp> CreateVectordbCollectionsCreateAsync(
             int requestTimeout,
 
             global::Milvus.CreateVectordbCollectionsCreateRequest request,
+            global::Milvus.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create Collection<br/>
@@ -54,6 +56,7 @@ namespace Milvus
         /// Whether the primary field automatically increments. This parameter is designed for the quick-setup of a collection and will be ignored if __schema__ is defined.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Milvus.HttpapiGenericRespCustomerCreateIndexResp> CreateVectordbCollectionsCreateAsync(
@@ -69,6 +72,7 @@ namespace Milvus
             global::System.Collections.Generic.IList<global::Milvus.IndexParam>? indexParams = default,
             global::Milvus.CollectionParams? @params = default,
             bool? autoId = default,
+            global::Milvus.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

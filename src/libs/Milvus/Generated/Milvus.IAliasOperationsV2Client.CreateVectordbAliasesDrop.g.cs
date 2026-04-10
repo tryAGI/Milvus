@@ -10,12 +10,14 @@ namespace Milvus
         /// </summary>
         /// <param name="requestTimeout"></param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Milvus.ApiException"></exception>
         global::System.Threading.Tasks.Task CreateVectordbAliasesDropAsync(
 
             global::Milvus.AliasName request,
             int? requestTimeout = default,
+            global::Milvus.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Drop Alias<br/>
@@ -32,6 +34,7 @@ namespace Milvus
         /// The alias to drop.<br/>
         /// When dropping an alias, you do not need to provide the collection name because one alias can only be assigned to exactly one collection. Therefore, the server knows which collection the specified alias belongs to.
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task CreateVectordbAliasesDropAsync(
@@ -39,6 +42,7 @@ namespace Milvus
             string aliasName1,
             int? requestTimeout = default,
             string? dbName = default,
+            global::Milvus.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

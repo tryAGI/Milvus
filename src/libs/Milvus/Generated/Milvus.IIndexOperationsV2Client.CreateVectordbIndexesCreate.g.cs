@@ -10,12 +10,14 @@ namespace Milvus
         /// </summary>
         /// <param name="requestTimeout"></param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Milvus.ApiException"></exception>
         global::System.Threading.Tasks.Task CreateVectordbIndexesCreateAsync(
 
             global::Milvus.CreateVectordbIndexesCreateRequest request,
             int? requestTimeout = default,
+            global::Milvus.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create Index<br/>
@@ -33,6 +35,7 @@ namespace Milvus
         /// <param name="indexParams">
         ///   The parameters that apply to the index-building process.
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task CreateVectordbIndexesCreateAsync(
@@ -40,6 +43,7 @@ namespace Milvus
             global::System.Collections.Generic.IList<global::Milvus.IndexParam> indexParams,
             int? requestTimeout = default,
             string? dbName = default,
+            global::Milvus.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

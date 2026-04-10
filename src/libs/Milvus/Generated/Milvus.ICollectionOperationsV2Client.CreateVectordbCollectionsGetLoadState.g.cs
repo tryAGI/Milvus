@@ -10,12 +10,14 @@ namespace Milvus
         /// </summary>
         /// <param name="requestTimeout"></param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Milvus.ApiException"></exception>
         global::System.Threading.Tasks.Task CreateVectordbCollectionsGetLoadStateAsync(
 
             global::Milvus.CreateVectordbCollectionsGetLoadStateRequest request,
             int? requestTimeout = default,
+            global::Milvus.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Collection Load State<br/>
@@ -31,6 +33,7 @@ namespace Milvus
         /// <param name="partitionNames">
         /// A list of partition names. If any partition names are specified, releasing any of these partitions results in the return of a NotLoad state.
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task CreateVectordbCollectionsGetLoadStateAsync(
@@ -38,6 +41,7 @@ namespace Milvus
             int? requestTimeout = default,
             string? dbName = default,
             string? partitionNames = default,
+            global::Milvus.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

@@ -10,12 +10,14 @@ namespace Milvus
         /// </summary>
         /// <param name="requestTimeout"></param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Milvus.ApiException"></exception>
         global::System.Threading.Tasks.Task CreateVectordbCollectionsRenameAsync(
 
             global::Milvus.CreateVectordbCollectionsRenameRequest request,
             int? requestTimeout = default,
+            global::Milvus.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Rename Collection<br/>
@@ -39,6 +41,7 @@ namespace Milvus
         /// The name of the target collection after this operation.<br/>
         /// Setting this to the value of **old_collection_name** results in a **MilvusException**.
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task CreateVectordbCollectionsRenameAsync(
@@ -47,6 +50,7 @@ namespace Milvus
             int? requestTimeout = default,
             string? dbName = default,
             string? newDbName = default,
+            global::Milvus.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }
