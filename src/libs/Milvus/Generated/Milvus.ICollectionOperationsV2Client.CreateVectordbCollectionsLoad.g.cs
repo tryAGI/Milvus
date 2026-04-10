@@ -10,12 +10,14 @@ namespace Milvus
         /// </summary>
         /// <param name="requestHeader"></param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Milvus.ApiException"></exception>
         global::System.Threading.Tasks.Task CreateVectordbCollectionsLoadAsync(
             int requestHeader,
 
             global::Milvus.CollectionName request,
+            global::Milvus.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Load Collection<br/>
@@ -30,12 +32,14 @@ namespace Milvus
         /// The name of the target collection.<br/>
         /// Setting this to a non-existing collection results in a **MilvusException**.
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task CreateVectordbCollectionsLoadAsync(
             int requestHeader,
             string collectionName1,
             string? dbName = default,
+            global::Milvus.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }
