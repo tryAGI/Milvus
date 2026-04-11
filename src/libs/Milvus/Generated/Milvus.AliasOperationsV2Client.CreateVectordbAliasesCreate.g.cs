@@ -110,10 +110,10 @@ namespace Milvus
                 } 
             }
 
-                if (requestTimeout != default)
-                {
-                    __httpRequest.Headers.TryAddWithoutValidation("Request-Timeout", requestTimeout.ToString());
-                }
+            if (requestTimeout != default)
+            {
+                __httpRequest.Headers.TryAddWithoutValidation("Request-Timeout", requestTimeout.ToString());
+            }
 
                 global::Milvus.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
