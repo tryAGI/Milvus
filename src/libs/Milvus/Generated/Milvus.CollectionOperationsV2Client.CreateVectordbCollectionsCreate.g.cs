@@ -142,7 +142,7 @@ namespace Milvus
                 PrepareCreateVectordbCollectionsCreateRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    requestTimeout: requestTimeout,
+                    requestTimeout: requestTimeout!,
                     request: request);
 
                 return __httpRequest;

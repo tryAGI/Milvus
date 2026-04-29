@@ -137,7 +137,7 @@ namespace Milvus
                 PrepareCreateVectordbPartitionsDropRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    requestTimeout: requestTimeout,
+                    requestTimeout: requestTimeout!,
                     request: request);
 
                 return __httpRequest;
