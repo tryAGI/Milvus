@@ -24,6 +24,21 @@ namespace Milvus
         /// This operation drops an existing role. The operation will succeed if the specified role exists. Otherwise, this operation will fail.
         /// </summary>
         /// <param name="requestTimeout"></param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Milvus.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::Milvus.AutoSDKHttpResponse> CreateVectordbRolesDropAsResponseAsync(
+
+            global::Milvus.RoleName request,
+            int? requestTimeout = default,
+            global::Milvus.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Drop Role<br/>
+        /// This operation drops an existing role. The operation will succeed if the specified role exists. Otherwise, this operation will fail.
+        /// </summary>
+        /// <param name="requestTimeout"></param>
         /// <param name="roleName1">
         /// The name of the role.
         /// </param>

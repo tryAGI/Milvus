@@ -24,6 +24,21 @@ namespace Milvus
         /// This operation creates a collection in a specified cluster.
         /// </summary>
         /// <param name="requestTimeout"></param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Milvus.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::Milvus.AutoSDKHttpResponse<global::Milvus.HttpapiGenericRespCustomerCreateIndexResp>> CreateVectordbCollectionsCreateAsResponseAsync(
+            int requestTimeout,
+
+            global::Milvus.CreateVectordbCollectionsCreateRequest request,
+            global::Milvus.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Create Collection<br/>
+        /// This operation creates a collection in a specified cluster.
+        /// </summary>
+        /// <param name="requestTimeout"></param>
         /// <param name="dbName">
         /// The name of the database. &lt;zilliz&gt;This parameter applies only to dedicated clusters.&lt;/zilliz&gt;
         /// </param>

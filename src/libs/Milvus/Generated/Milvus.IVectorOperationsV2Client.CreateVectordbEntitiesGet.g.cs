@@ -24,6 +24,21 @@ namespace Milvus
         /// This operation gets specific entities by their IDs.
         /// </summary>
         /// <param name="requestTimeout"></param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Milvus.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::Milvus.AutoSDKHttpResponse<global::Milvus.CreateVectordbEntitiesGetResponse>> CreateVectordbEntitiesGetAsResponseAsync(
+
+            global::Milvus.CreateVectordbEntitiesGetRequest request,
+            int? requestTimeout = default,
+            global::Milvus.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get<br/>
+        /// This operation gets specific entities by their IDs.
+        /// </summary>
+        /// <param name="requestTimeout"></param>
         /// <param name="dbName">
         /// The name of the database.
         /// </param>
