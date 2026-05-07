@@ -8,6 +8,7 @@ public sealed class Environment : IAsyncDisposable
     private const string MilvusImage = "milvusdb/milvus:v2.5.27";
     private const ushort MilvusPort = 19530;
     private const ushort MilvusHealthPort = 9091;
+    private const string DefaultApiKey = "root:Milvus";
     private static readonly TimeSpan StartupTimeout = TimeSpan.FromMinutes(3);
 
     public IContainer? Container { get; init; }
@@ -30,6 +31,7 @@ public sealed class Environment : IAsyncDisposable
             case EnvironmentType.Local:
             {
                 var client = new MilvusClient(
+                    DefaultApiKey,
                     baseUri: new Uri($"http://127.0.0.1:{MilvusPort}"));
 
                 return new Environment
@@ -57,6 +59,7 @@ public sealed class Environment : IAsyncDisposable
                 await container.StartAsync(cts.Token);
 
                 var client = new MilvusClient(
+                    DefaultApiKey,
                     baseUri: new UriBuilder(
                         Uri.UriSchemeHttp,
                         container.Hostname,
