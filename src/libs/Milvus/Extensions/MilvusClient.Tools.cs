@@ -32,8 +32,7 @@ public static class MilvusClientToolExtensions
                 string? outputFieldsJson,
                 CancellationToken cancellationToken) =>
             {
-                var vectorData = JsonSerializer.Deserialize<List<List<float>>>(vectorJson)
-                    ?? throw new ArgumentException("Invalid vector JSON. Expected a JSON array of float arrays.", nameof(vectorJson));
+                var vectorData = ParseFloatArrays(vectorJson);
 
                 var vector = vectorData
                     .Select(v => (IList<AnyOf<int?, string>>)v
@@ -44,7 +43,7 @@ public static class MilvusClientToolExtensions
                 List<string>? outputFields = null;
                 if (!string.IsNullOrWhiteSpace(outputFieldsJson))
                 {
-                    outputFields = JsonSerializer.Deserialize<List<string>>(outputFieldsJson);
+                    outputFields = ParseStringArray(outputFieldsJson);
                 }
 
                 var response = await client.VectorOperationsV2.CreateVectordbEntitiesSearchAsync(
@@ -79,8 +78,7 @@ public static class MilvusClientToolExtensions
                 string? partitionName,
                 CancellationToken cancellationToken) =>
             {
-                var dataList = JsonSerializer.Deserialize<List<object>>(dataJson)
-                    ?? throw new ArgumentException("Invalid data JSON. Expected a JSON array of objects.", nameof(dataJson));
+                var dataList = ParseJsonArray(dataJson);
 
                 var data = new AnyOf<CreateVectordbEntitiesInsertRequestData, IList<object>>(
                     value1: null,
@@ -163,7 +161,7 @@ public static class MilvusClientToolExtensions
                             .ToString().TrimEnd('/') + "/v2/vectordb/collections/list"));
 
                 httpRequest.Content = new System.Net.Http.StringContent(
-                    JsonSerializer.Serialize(request),
+                    request.ToJson(SourceGenerationContext.Default),
                     System.Text.Encoding.UTF8,
                     "application/json");
 
@@ -274,7 +272,7 @@ public static class MilvusClientToolExtensions
                 List<string>? outputFields = null;
                 if (!string.IsNullOrWhiteSpace(outputFieldsJson))
                 {
-                    outputFields = JsonSerializer.Deserialize<List<string>>(outputFieldsJson);
+                    outputFields = ParseStringArray(outputFieldsJson);
                 }
 
                 var response = await client.VectorOperationsV2.CreateVectordbEntitiesQueryAsync(
@@ -333,7 +331,7 @@ public static class MilvusClientToolExtensions
             parts.Add($"Found {response.Data.Count} results:");
             foreach (var item in response.Data)
             {
-                parts.Add($"- {JsonSerializer.Serialize(item)}");
+                parts.Add($"- {SerializeGenerated(item)}");
             }
         }
         else
@@ -413,7 +411,7 @@ public static class MilvusClientToolExtensions
             parts.Add("Indexes:");
             foreach (var index in data.Indexes)
             {
-                parts.Add($"  - {JsonSerializer.Serialize(index)}");
+                parts.Add($"  - {SerializeGenerated(index)}");
             }
         }
 
@@ -435,7 +433,7 @@ public static class MilvusClientToolExtensions
             parts.Add($"Found {response.Data.Count} entities:");
             foreach (var item in response.Data)
             {
-                parts.Add($"- {JsonSerializer.Serialize(item)}");
+                parts.Add($"- {SerializeGenerated(item)}");
             }
         }
         else
@@ -459,5 +457,86 @@ public static class MilvusClientToolExtensions
         parts.Add("Delete completed successfully.");
 
         return string.Join("\n", parts);
+    }
+
+    private static List<List<float>> ParseFloatArrays(string json)
+    {
+        using var document = JsonDocument.Parse(json);
+        if (document.RootElement.ValueKind != JsonValueKind.Array)
+        {
+            throw new ArgumentException("Expected a JSON array of float arrays.", nameof(json));
+        }
+
+        var result = new List<List<float>>();
+        foreach (var vectorElement in document.RootElement.EnumerateArray())
+        {
+            if (vectorElement.ValueKind != JsonValueKind.Array)
+            {
+                throw new ArgumentException("Expected every vector to be a JSON array.", nameof(json));
+            }
+
+            var vector = new List<float>();
+            foreach (var value in vectorElement.EnumerateArray())
+            {
+                vector.Add(value.GetSingle());
+            }
+
+            result.Add(vector);
+        }
+
+        return result;
+    }
+
+    private static List<string> ParseStringArray(string json)
+    {
+        using var document = JsonDocument.Parse(json);
+        if (document.RootElement.ValueKind != JsonValueKind.Array)
+        {
+            throw new ArgumentException("Expected a JSON array of strings.", nameof(json));
+        }
+
+        var result = new List<string>();
+        foreach (var value in document.RootElement.EnumerateArray())
+        {
+            result.Add(value.GetString() ?? value.ToString());
+        }
+
+        return result;
+    }
+
+    private static List<object> ParseJsonArray(string json)
+    {
+        using var document = JsonDocument.Parse(json);
+        if (document.RootElement.ValueKind != JsonValueKind.Array)
+        {
+            throw new ArgumentException("Expected a JSON array.", nameof(json));
+        }
+
+        var result = new List<object>();
+        foreach (var item in document.RootElement.EnumerateArray())
+        {
+            result.Add(item.Clone());
+        }
+
+        return result;
+    }
+
+    private static string SerializeGenerated(object value)
+    {
+        if (value is JsonElement jsonElement)
+        {
+            return jsonElement.ValueKind == JsonValueKind.String
+                ? jsonElement.GetString() ?? string.Empty
+                : jsonElement.GetRawText();
+        }
+
+        try
+        {
+            return JsonSerializer.Serialize(value, value.GetType(), SourceGenerationContext.Default);
+        }
+        catch (NotSupportedException)
+        {
+            return value.ToString() ?? string.Empty;
+        }
     }
 }
