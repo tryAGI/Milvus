@@ -75,5 +75,6 @@ namespace Milvus
         public IndexConfig()
         {
         }
+
     }
 }

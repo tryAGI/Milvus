@@ -52,5 +52,6 @@ namespace Milvus
         public SearchParams()
         {
         }
+
     }
 }

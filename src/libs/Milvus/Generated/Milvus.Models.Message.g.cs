@@ -50,5 +50,6 @@ namespace Milvus
         public Message()
         {
         }
+
     }
 }

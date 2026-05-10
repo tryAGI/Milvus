@@ -135,5 +135,6 @@ namespace Milvus
         public IndexDetail()
         {
         }
+
     }
 }

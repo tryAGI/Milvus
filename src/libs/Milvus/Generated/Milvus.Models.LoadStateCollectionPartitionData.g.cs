@@ -74,5 +74,6 @@ namespace Milvus
         public LoadStateCollectionPartitionData()
         {
         }
+
     }
 }

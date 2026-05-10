@@ -66,5 +66,6 @@ namespace Milvus
         public FieldSchemaElementTypeParams()
         {
         }
+
     }
 }
