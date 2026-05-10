@@ -81,5 +81,6 @@ namespace Milvus
         public CreateVectordbEntitiesInsertRequest()
         {
         }
+
     }
 }

@@ -42,5 +42,6 @@ namespace Milvus
         public RoleName()
         {
         }
+
     }
 }

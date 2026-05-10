@@ -102,5 +102,6 @@ namespace Milvus
         public CreateVectordbCollectionsDescribeResponseDataField()
         {
         }
+
     }
 }

@@ -56,5 +56,6 @@ namespace Milvus
         public GetStatsReq()
         {
         }
+
     }
 }

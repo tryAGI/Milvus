@@ -67,5 +67,6 @@ namespace Milvus
         public AliasName()
         {
         }
+
     }
 }

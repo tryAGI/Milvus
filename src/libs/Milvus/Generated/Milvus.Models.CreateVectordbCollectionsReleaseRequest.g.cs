@@ -57,5 +57,6 @@ namespace Milvus
         public CreateVectordbCollectionsReleaseRequest()
         {
         }
+
     }
 }

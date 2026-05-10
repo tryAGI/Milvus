@@ -98,5 +98,6 @@ namespace Milvus
         public FieldSchema()
         {
         }
+
     }
 }
