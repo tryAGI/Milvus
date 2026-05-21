@@ -89,5 +89,6 @@ namespace Milvus
         public PrivilegeEntity()
         {
         }
+
     }
 }

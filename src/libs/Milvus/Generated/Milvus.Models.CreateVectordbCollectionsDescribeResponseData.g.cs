@@ -127,5 +127,6 @@ namespace Milvus
         public CreateVectordbCollectionsDescribeResponseData()
         {
         }
+
     }
 }

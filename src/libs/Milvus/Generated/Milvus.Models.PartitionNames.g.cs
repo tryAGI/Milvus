@@ -69,5 +69,6 @@ namespace Milvus
         public PartitionNames()
         {
         }
+
     }
 }

@@ -86,5 +86,6 @@ namespace Milvus
         public CreateVectordbCollectionsRenameRequest()
         {
         }
+
     }
 }

@@ -62,5 +62,6 @@ namespace Milvus
         public CollectionSchema()
         {
         }
+
     }
 }
