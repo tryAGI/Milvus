@@ -10,7 +10,14 @@ OpenAPI spec from the official [milvus-io/web-content](https://github.com/milvus
 ```bash
 dotnet build Milvus.slnx
 dotnet test src/tests/IntegrationTests/
+
+# Optional first-run pre-pull for faster container startup
+docker pull milvusdb/milvus:v2.5.27
 ```
+
+Integration tests use Testcontainers automatically when Docker is available. If Docker is unavailable, tests connect to a local Milvus instance at `http://localhost:19530`.
+
+Override with `MILVUS_TEST_ENVIRONMENT=Local|Container`.
 
 ## Auth
 

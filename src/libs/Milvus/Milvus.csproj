@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <PropertyGroup Label="Nuget">
+    <PackageId>tryAGI.Milvus</PackageId>
     <Description>C# SDK for the Milvus vector database REST API -- collections, vectors, partitions, indexes, users, and roles management.</Description>
     <PackageTags>milvus;vector-database;csharp;dotnet;sdk;ai;autosdk;openapi;embeddings;similarity-search</PackageTags>
   </PropertyGroup>
