@@ -10,7 +10,7 @@ namespace Milvus
     public sealed partial class VectorOperationsV2Client : global::Milvus.IVectorOperationsV2Client, global::System.IDisposable
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public const string DefaultBaseUrl = "http://localhost:19530/";
 
@@ -37,7 +37,7 @@ namespace Milvus
         internal global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext> JsonSerializerContextProvider { get; set; } = new(() => global::Milvus.SourceGenerationContext.Default);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext
         {

@@ -47,7 +47,7 @@ namespace Milvus
         /// </param>
         /// <param name="filter">
         /// A scalar filtering condition to filter matching entities.    The value defaults to an empty string, indicating that no condition applies. Setting both **id** and **filter** results in an error.<br/>
-        /// You can set this parameter to an empty string to skip scalar filtering. To build a scalar filtering condition, refer to [Boolean Expression Rules](https://milvus.io/docs/boolean.md). 
+        /// You can set this parameter to an empty string to skip scalar filtering. To build a scalar filtering condition, refer to [Boolean Expression Rules](https://milvus.io/docs/boolean.md).
         /// </param>
         /// <param name="partitionName">
         /// The name of a partition in the current collection. <br/>

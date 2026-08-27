@@ -4,7 +4,7 @@
 namespace Milvus
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class CreateVectordbEntitiesInsertRequest
     {
@@ -23,7 +23,7 @@ namespace Milvus
 
         /// <summary>
         /// The data to insert into the current collection.<br/>
-        /// The data to insert should be a dictionary that matches the schema of the current collection or a list of such dictionaries. 
+        /// The data to insert should be a dictionary that matches the schema of the current collection or a list of such dictionaries.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Milvus.JsonConverters.AnyOfJsonConverter<global::Milvus.CreateVectordbEntitiesInsertRequestData, global::System.Collections.Generic.IList<object>>))]
@@ -51,7 +51,7 @@ namespace Milvus
         /// </param>
         /// <param name="data">
         /// The data to insert into the current collection.<br/>
-        /// The data to insert should be a dictionary that matches the schema of the current collection or a list of such dictionaries. 
+        /// The data to insert should be a dictionary that matches the schema of the current collection or a list of such dictionaries.
         /// </param>
         /// <param name="dbName">
         /// The name of the target database.

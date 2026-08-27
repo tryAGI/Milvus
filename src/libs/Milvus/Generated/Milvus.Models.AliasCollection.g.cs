@@ -4,7 +4,7 @@
 namespace Milvus
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class AliasCollection
     {
@@ -22,7 +22,7 @@ namespace Milvus
         public required string CollectionName { get; set; }
 
         /// <summary>
-        /// The alias of the collection. 
+        /// The alias of the collection.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("aliasName")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -41,7 +41,7 @@ namespace Milvus
         /// The name of the target collection to reassign an alias to.
         /// </param>
         /// <param name="aliasName">
-        /// The alias of the collection. 
+        /// The alias of the collection.
         /// </param>
         /// <param name="dbName">
         /// The name of the database to which the collection belongs.

@@ -4,7 +4,7 @@
 namespace Milvus
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class CreateVectordbCollectionsCreateRequest
     {
@@ -53,7 +53,7 @@ namespace Milvus
         public string? VectorFieldName { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("schema")]
         public global::Milvus.CollectionSchema? Schema { get; set; }
@@ -65,7 +65,7 @@ namespace Milvus
         public global::System.Collections.Generic.IList<global::Milvus.IndexParam>? IndexParams { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("params")]
         public global::Milvus.CollectionParams? Params { get; set; }

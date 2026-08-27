@@ -40,7 +40,7 @@ namespace Milvus
 
         /// <summary>
         /// Load Collection<br/>
-        /// This operation loads the data of the current collection into memory. 
+        /// This operation loads the data of the current collection into memory.
         /// </summary>
         /// <param name="requestHeader"></param>
         /// <param name="request"></param>
@@ -64,7 +64,7 @@ namespace Milvus
         }
         /// <summary>
         /// Load Collection<br/>
-        /// This operation loads the data of the current collection into memory. 
+        /// This operation loads the data of the current collection into memory.
         /// </summary>
         /// <param name="requestHeader"></param>
         /// <param name="request"></param>
@@ -140,7 +140,7 @@ namespace Milvus
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
 
                 __httpRequest.Headers.TryAddWithoutValidation("Request-Header", requestHeader.ToString());
@@ -424,7 +424,7 @@ namespace Milvus
         }
         /// <summary>
         /// Load Collection<br/>
-        /// This operation loads the data of the current collection into memory. 
+        /// This operation loads the data of the current collection into memory.
         /// </summary>
         /// <param name="requestHeader"></param>
         /// <param name="dbName">

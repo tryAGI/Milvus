@@ -47,7 +47,7 @@ namespace Milvus
         /// </param>
         /// <param name="data">
         /// The data to insert into the current collection.<br/>
-        /// The data to insert should be a dictionary that matches the schema of the current collection or a list of such dictionaries. 
+        /// The data to insert should be a dictionary that matches the schema of the current collection or a list of such dictionaries.
         /// </param>
         /// <param name="partitionName">
         /// The name of a partition in the current collection. <br/>

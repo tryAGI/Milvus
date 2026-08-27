@@ -6,7 +6,7 @@ namespace Milvus
     {
         /// <summary>
         /// Drop Partition<br/>
-        /// This operation drops the current partition. 
+        /// This operation drops the current partition.
         /// </summary>
         /// <param name="requestTimeout"></param>
         /// <param name="request"></param>
@@ -21,7 +21,7 @@ namespace Milvus
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Drop Partition<br/>
-        /// This operation drops the current partition. 
+        /// This operation drops the current partition.
         /// </summary>
         /// <param name="requestTimeout"></param>
         /// <param name="request"></param>
@@ -36,7 +36,7 @@ namespace Milvus
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Drop Partition<br/>
-        /// This operation drops the current partition. 
+        /// This operation drops the current partition.
         /// </summary>
         /// <param name="requestTimeout"></param>
         /// <param name="dbName">

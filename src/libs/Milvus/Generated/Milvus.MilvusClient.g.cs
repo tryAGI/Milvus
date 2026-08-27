@@ -10,7 +10,7 @@ namespace Milvus
     public sealed partial class MilvusClient : global::Milvus.IMilvusClient, global::System.IDisposable
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public const string DefaultBaseUrl = "http://localhost:19530/";
 
@@ -37,7 +37,7 @@ namespace Milvus
         internal global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext> JsonSerializerContextProvider { get; set; } = new(() => global::Milvus.SourceGenerationContext.Default);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext
         {
@@ -47,7 +47,7 @@ namespace Milvus
 
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public AliasOperationsV2Client AliasOperationsV2 => new AliasOperationsV2Client(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -56,7 +56,7 @@ namespace Milvus
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public CollectionOperationsV2Client CollectionOperationsV2 => new CollectionOperationsV2Client(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -65,7 +65,7 @@ namespace Milvus
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public IndexOperationsV2Client IndexOperationsV2 => new IndexOperationsV2Client(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -74,7 +74,7 @@ namespace Milvus
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public PartitionOperationsV2Client PartitionOperationsV2 => new PartitionOperationsV2Client(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -83,7 +83,7 @@ namespace Milvus
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public RoleOperationsV2Client RoleOperationsV2 => new RoleOperationsV2Client(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -92,7 +92,7 @@ namespace Milvus
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public UserOperationsV2Client UserOperationsV2 => new UserOperationsV2Client(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -101,7 +101,7 @@ namespace Milvus
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public VectorOperationsV2Client VectorOperationsV2 => new VectorOperationsV2Client(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
