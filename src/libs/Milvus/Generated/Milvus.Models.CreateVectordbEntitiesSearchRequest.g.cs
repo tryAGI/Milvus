@@ -4,7 +4,7 @@
 namespace Milvus
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class CreateVectordbEntitiesSearchRequest
     {
@@ -30,7 +30,7 @@ namespace Milvus
         public required global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<global::Milvus.AnyOf<int?, string>>> Vector { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("annsField")]
         public string? AnnsField { get; set; }
@@ -44,13 +44,13 @@ namespace Milvus
         /// <summary>
         /// The total number of entities to return.<br/>
         /// You can use this parameter in combination with **offset** in **param** to enable pagination.<br/>
-        /// The sum of this value and **offset** in **param** should be less than 16,384. 
+        /// The sum of this value and **offset** in **param** should be less than 16,384.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("limit")]
         public int? Limit { get; set; }
 
         /// <summary>
-        ///     The number of records to skip in the search result.      You can use this parameter in combination with limit to enable pagination.     The sum of this value and limit should be less than 16,384. 
+        ///     The number of records to skip in the search result.      You can use this parameter in combination with limit to enable pagination.     The sum of this value and limit should be less than 16,384.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("offset")]
         public int? Offset { get; set; }
@@ -68,7 +68,7 @@ namespace Milvus
         public global::System.Collections.Generic.IList<string>? OutputFields { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("searchParams")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -107,10 +107,10 @@ namespace Milvus
         /// <param name="limit">
         /// The total number of entities to return.<br/>
         /// You can use this parameter in combination with **offset** in **param** to enable pagination.<br/>
-        /// The sum of this value and **offset** in **param** should be less than 16,384. 
+        /// The sum of this value and **offset** in **param** should be less than 16,384.
         /// </param>
         /// <param name="offset">
-        ///     The number of records to skip in the search result.      You can use this parameter in combination with limit to enable pagination.     The sum of this value and limit should be less than 16,384. 
+        ///     The number of records to skip in the search result.      You can use this parameter in combination with limit to enable pagination.     The sum of this value and limit should be less than 16,384.
         /// </param>
         /// <param name="groupingField">
         /// https://zilliverse.feishu.cn/docx/S3brdwmUHoG33dxhifpcruAYnsb

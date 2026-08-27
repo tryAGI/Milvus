@@ -40,7 +40,7 @@ namespace Milvus
 
         /// <summary>
         /// Drop Partition<br/>
-        /// This operation drops the current partition. 
+        /// This operation drops the current partition.
         /// </summary>
         /// <param name="requestTimeout"></param>
         /// <param name="request"></param>
@@ -64,7 +64,7 @@ namespace Milvus
         }
         /// <summary>
         /// Drop Partition<br/>
-        /// This operation drops the current partition. 
+        /// This operation drops the current partition.
         /// </summary>
         /// <param name="requestTimeout"></param>
         /// <param name="request"></param>
@@ -140,7 +140,7 @@ namespace Milvus
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
 
                 __httpRequest.Headers.TryAddWithoutValidation("Request-Timeout", requestTimeout.ToString());
@@ -424,7 +424,7 @@ namespace Milvus
         }
         /// <summary>
         /// Drop Partition<br/>
-        /// This operation drops the current partition. 
+        /// This operation drops the current partition.
         /// </summary>
         /// <param name="requestTimeout"></param>
         /// <param name="dbName">

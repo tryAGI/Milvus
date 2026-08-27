@@ -6,7 +6,7 @@ namespace Milvus
     {
         /// <summary>
         /// Create Role<br/>
-        /// This operation creates the current role. 
+        /// This operation creates the current role.
         /// </summary>
         /// <param name="requestTimeout"></param>
         /// <param name="request"></param>
@@ -21,7 +21,7 @@ namespace Milvus
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create Role<br/>
-        /// This operation creates the current role. 
+        /// This operation creates the current role.
         /// </summary>
         /// <param name="requestTimeout"></param>
         /// <param name="request"></param>
@@ -36,7 +36,7 @@ namespace Milvus
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create Role<br/>
-        /// This operation creates the current role. 
+        /// This operation creates the current role.
         /// </summary>
         /// <param name="requestTimeout"></param>
         /// <param name="roleName1">

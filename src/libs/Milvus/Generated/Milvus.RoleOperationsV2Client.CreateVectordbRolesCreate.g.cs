@@ -40,7 +40,7 @@ namespace Milvus
 
         /// <summary>
         /// Create Role<br/>
-        /// This operation creates the current role. 
+        /// This operation creates the current role.
         /// </summary>
         /// <param name="requestTimeout"></param>
         /// <param name="request"></param>
@@ -64,7 +64,7 @@ namespace Milvus
         }
         /// <summary>
         /// Create Role<br/>
-        /// This operation creates the current role. 
+        /// This operation creates the current role.
         /// </summary>
         /// <param name="requestTimeout"></param>
         /// <param name="request"></param>
@@ -140,7 +140,7 @@ namespace Milvus
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
 
             if (requestTimeout != default)
@@ -427,7 +427,7 @@ namespace Milvus
         }
         /// <summary>
         /// Create Role<br/>
-        /// This operation creates the current role. 
+        /// This operation creates the current role.
         /// </summary>
         /// <param name="requestTimeout"></param>
         /// <param name="roleName1">

@@ -4,18 +4,18 @@
 namespace Milvus
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class HttpapiGenericRespCustomerDropCollectionResp
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("code")]
         public int? Code { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data")]
         public global::Milvus.CustomerDropCollectionResp? Data { get; set; }

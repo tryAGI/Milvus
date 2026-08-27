@@ -6,7 +6,7 @@ namespace Milvus
     {
         /// <summary>
         /// Load Collection<br/>
-        /// This operation loads the data of the current collection into memory. 
+        /// This operation loads the data of the current collection into memory.
         /// </summary>
         /// <param name="requestHeader"></param>
         /// <param name="request"></param>
@@ -21,7 +21,7 @@ namespace Milvus
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Load Collection<br/>
-        /// This operation loads the data of the current collection into memory. 
+        /// This operation loads the data of the current collection into memory.
         /// </summary>
         /// <param name="requestHeader"></param>
         /// <param name="request"></param>
@@ -36,7 +36,7 @@ namespace Milvus
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Load Collection<br/>
-        /// This operation loads the data of the current collection into memory. 
+        /// This operation loads the data of the current collection into memory.
         /// </summary>
         /// <param name="requestHeader"></param>
         /// <param name="dbName">

@@ -4,7 +4,7 @@
 namespace Milvus
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class IndexParam
     {
@@ -33,7 +33,7 @@ namespace Milvus
         public required string IndexName { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("indexConfig")]
         public global::Milvus.IndexConfig? IndexConfig { get; set; }

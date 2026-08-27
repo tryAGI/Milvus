@@ -4,18 +4,18 @@
 namespace Milvus
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class CreateVectordbEntitiesGetResponse
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("code")]
         public int? Code { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data")]
         public global::System.Collections.Generic.IList<object>? Data { get; set; }

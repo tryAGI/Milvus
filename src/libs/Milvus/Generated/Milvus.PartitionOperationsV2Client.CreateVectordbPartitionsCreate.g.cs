@@ -40,7 +40,7 @@ namespace Milvus
 
         /// <summary>
         /// Create Partition<br/>
-        /// This operation creates a partition in a collection. 
+        /// This operation creates a partition in a collection.
         /// </summary>
         /// <param name="requestTimeout"></param>
         /// <param name="request"></param>
@@ -64,7 +64,7 @@ namespace Milvus
         }
         /// <summary>
         /// Create Partition<br/>
-        /// This operation creates a partition in a collection. 
+        /// This operation creates a partition in a collection.
         /// </summary>
         /// <param name="requestTimeout"></param>
         /// <param name="request"></param>
@@ -140,7 +140,7 @@ namespace Milvus
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
 
             if (requestTimeout != default)
@@ -427,7 +427,7 @@ namespace Milvus
         }
         /// <summary>
         /// Create Partition<br/>
-        /// This operation creates a partition in a collection. 
+        /// This operation creates a partition in a collection.
         /// </summary>
         /// <param name="requestTimeout"></param>
         /// <param name="dbName">

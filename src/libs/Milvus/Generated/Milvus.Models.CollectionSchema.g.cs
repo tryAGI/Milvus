@@ -4,7 +4,7 @@
 namespace Milvus
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class CollectionSchema
     {
@@ -16,14 +16,14 @@ namespace Milvus
         public required string AutoId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("enableDynamicField")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string EnableDynamicField { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("fields")]
         [global::System.Text.Json.Serialization.JsonRequired]

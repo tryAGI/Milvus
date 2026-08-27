@@ -4,7 +4,7 @@
 namespace Milvus
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class CreateVectordbPartitionsGetStatsRequest
     {
@@ -22,7 +22,7 @@ namespace Milvus
         public required string CollectionName { get; set; }
 
         /// <summary>
-        /// The name of the target partition of this operation. 
+        /// The name of the target partition of this operation.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("partitionName")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -41,7 +41,7 @@ namespace Milvus
         /// The name of an existing collection.
         /// </param>
         /// <param name="partitionName">
-        /// The name of the target partition of this operation. 
+        /// The name of the target partition of this operation.
         /// </param>
         /// <param name="dbName">
         /// The name of an existing database. The value defaults to __default__.

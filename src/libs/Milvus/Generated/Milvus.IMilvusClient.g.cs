@@ -39,43 +39,43 @@ namespace Milvus
 
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext { get; set; }
 
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public AliasOperationsV2Client AliasOperationsV2 { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public CollectionOperationsV2Client CollectionOperationsV2 { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public IndexOperationsV2Client IndexOperationsV2 { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public PartitionOperationsV2Client PartitionOperationsV2 { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public RoleOperationsV2Client RoleOperationsV2 { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public UserOperationsV2Client UserOperationsV2 { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public VectorOperationsV2Client VectorOperationsV2 { get; }
 
