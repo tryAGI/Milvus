@@ -24,6 +24,7 @@ namespace Milvus
             typeof(global::Milvus.JsonConverters.UnixTimestampJsonConverter),
         })]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.JsonSerializerContextTypes))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>), TypeInfoPropertyName = "SystemCollectionsGeneric_ObjectList")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.AliasName))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(string))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.AliasCollection))]
@@ -130,7 +131,6 @@ namespace Milvus
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Milvus.PrivilegeEntity>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Milvus.AnyOf<int?, string>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.AnyOf<global::Milvus.CreateVectordbEntitiesInsertRequestData, global::System.Collections.Generic.List<object>>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.AnyOf<global::Milvus.CreateVectordbEntitiesUpsertRequestData, global::System.Collections.Generic.List<object>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Milvus.AnyOf<int?, string, global::System.Collections.Generic.List<int>, global::System.Collections.Generic.List<string>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<int>))]
