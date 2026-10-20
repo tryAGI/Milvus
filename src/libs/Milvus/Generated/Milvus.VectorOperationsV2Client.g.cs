@@ -34,14 +34,14 @@ namespace Milvus
         /// <inheritdoc/>
         public global::Milvus.AutoSDKClientOptions Options { get; }
 
-        internal global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext> JsonSerializerContextProvider { get; set; } = new(() => global::Milvus.VectorOperationsV2SourceGenerationContext.Default);
+        internal global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext>? JsonSerializerContextProvider { get; set; }
 
         /// <summary>
         ///
         /// </summary>
         public global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext
         {
-            get => JsonSerializerContextProvider.Value;
+            get => JsonSerializerContextProvider?.Value ?? global::Milvus.VectorOperationsV2SourceGenerationContext.Default;
             set => JsonSerializerContextProvider = new(() => value);
         }
 
