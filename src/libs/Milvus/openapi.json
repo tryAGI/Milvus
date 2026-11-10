@@ -4842,32 +4842,32 @@
       "Privilege-Entity": {
         "type": "object",
         "properties": {
-          "object_type": {
-            "type": "string",
-            "description": "  The type of the object to which the privilege belongs."
-          },
           "privilege": {
             "type": "string",
             "description": "  The privilege that is granted to the role."
           },
-          "object_name": {
-            "type": "string",
-            "description": "  The name of the object to which the role is granted the specified privilege."
-          },
-          "db_name": {
-            "type": "string",
-            "description": "  The name of the database in which this operation has been executed."
-          },
           "grantor": {
             "type": "string",
             "description": "  The name of the user who granted a specific role to a user."
+          },
+          "objectType": {
+            "type": "string",
+            "description": "  The type of the object to which the privilege belongs."
+          },
+          "objectName": {
+            "type": "string",
+            "description": "  The name of the object to which the role is granted the specified privilege."
+          },
+          "dbName": {
+            "type": "string",
+            "description": "  The name of the database in which this operation has been executed."
           }
         },
         "required": [
-          "object_type",
+          "objectType",
           "privilege",
-          "object_name",
-          "db_name"
+          "objectName",
+          "dbName"
         ],
         "x-apifox-orders": [
           "object_type",
