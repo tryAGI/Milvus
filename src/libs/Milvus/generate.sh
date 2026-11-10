@@ -31,7 +31,22 @@ jq '
       del(.properties.autoID) |
       if has("required") then .required |= map(select(. != "autoID")) else . end
     else . end
-  )
+  ) |
+
+  # `POST /v2/vectordb/roles/describe` answers with camelCase - objectType, objectName, dbName -
+  # while the spec declares the snake_case spellings as required, so the response could not
+  # deserialize at all. Found against the Testcontainers instance.
+  (.components.schemas["Privilege-Entity"] |
+     .properties.objectType = .properties.object_type |
+     .properties.objectName = .properties.object_name |
+     .properties.dbName = .properties.db_name |
+     del(.properties.object_type, .properties.object_name, .properties.db_name) |
+     .required = (.required
+       | map(if . == "object_type" then "objectType"
+             elif . == "object_name" then "objectName"
+             elif . == "db_name" then "dbName"
+             else . end))) as $entity |
+  .components.schemas["Privilege-Entity"] = $entity
 ' openapi.json > openapi.fixed.json
 mv openapi.fixed.json openapi.json
 
